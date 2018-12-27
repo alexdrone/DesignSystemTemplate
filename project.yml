@@ -1,0 +1,38 @@
+name: App
+options:
+  deploymentTarget:
+    iOS: 10.0
+  usesTabs: false
+  indentWidth: 2
+options:
+  bundleIdPrefix: io.alexdrone.app
+targets:
+  App:
+    type: application
+    platform: iOS
+    deploymentTarget: "10.0"
+    sources: src/
+    dependencies:
+      - framework: frameworks/CoreRender.framework
+      - framework: frameworks/Emit.framework
+      - carthage: Nuke
+    settings:
+      base:
+        INFOPLIST_FILE: src/Info.plist
+        SWIFT_OPTIMIZATION_LEVEL: -Owholemodule
+        SWIFT_VERSION: 4.2
+  Test:
+    platform: iOS
+    type: bundle.unit-test
+    sources:
+      - test
+    dependencies:
+      - target: App
+    scheme:
+      testTargets:
+        - Test
+      gatherCoverageData: true
+      environmentVariables:
+        - variable: TEST
+          value: YES
+          isEnabled: true
