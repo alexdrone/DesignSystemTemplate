@@ -11,11 +11,15 @@ targets:
     type: application
     platform: iOS
     deploymentTarget: "10.0"
-    sources: src/
+    sources: 
+      - src/
+      - generate_project.sh
     dependencies:
       - framework: frameworks/CoreRender.framework
       - framework: frameworks/Emit.framework
       - carthage: Nuke
+      - carthage: PromiseKit
+      - carthage: Motion
     settings:
       base:
         INFOPLIST_FILE: src/Info.plist
