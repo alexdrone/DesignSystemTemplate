@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Checks out the dependencies.
-if [ $1 = "--skip-checkout" ]; then
+if [ $# -eq 1 ] && [ $1 = "--skip-checkout" ]; then
   echo "";
 else
   ./scripts/_checkout.sh;

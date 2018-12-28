@@ -3,7 +3,7 @@ import UIKit
 extension UIImage {
 
   /// Tint the image with the desired color.
-  func image(withTintColor color: UIColor) -> UIImage {
+  func withTintColor(_ color: UIColor) -> UIImage {
     UIGraphicsBeginImageContextWithOptions(self.size, false, self.scale)
     let context: CGContext = UIGraphicsGetCurrentContext()!
     context.translateBy(x: 0, y: self.size.height)
@@ -19,7 +19,7 @@ extension UIImage {
   }
 
   /// Resize an image.
-  func image(byResizingToTargetHeight targetHeight: CGFloat) -> UIImage {
+  func byResizingToTargetHeight(_ targetHeight: CGFloat) -> UIImage {
     let size = self.size
     let heightRatio = targetHeight / size.height
     let newSize = CGSize(width: size.width * heightRatio, height: size.height * heightRatio)

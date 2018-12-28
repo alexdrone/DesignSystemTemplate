@@ -1,12 +1,12 @@
 #!/bin/bash
 
-icons="src/Theme/Icons.generated.swift";
+icons="src/Base/Theme/Icons.generated.swift";
 rm $icons;
 touch $icons;
 printf "import UIKit\n\nstruct Icons {\n" >> $icons;
 for var in "$@"
 do
-  source="icons/${var}.pdf" 
+  source="resources/icons/${var}.pdf" 
   if [ ! -f $source ]; then
     echo "icon ${var} not found.";
   else

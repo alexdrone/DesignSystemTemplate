@@ -27,7 +27,7 @@ extension UIButton {
   @discardableResult
   func withIcon(_ icon: String, size: CGFloat? = nil, color: UIColor? = nil) -> UIButton {
     guard var icon = UIImage(named: icon)?.withRenderingMode(.alwaysTemplate) else { return self }
-    if let size = size { icon = icon.image(byResizingToTargetHeight: size) }
+    if let size = size { icon = icon.byResizingToTargetHeight(size) }
     self.setImage(icon, for: .normal)
     if let color = color { tintColor = color }
     return self

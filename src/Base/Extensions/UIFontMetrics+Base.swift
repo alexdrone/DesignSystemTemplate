@@ -27,9 +27,10 @@ struct FontMetrics {
   /// - returns: The font at its constrained scaled point size.
   static func scaledFont(for font: UIFont, maximumPointSize: CGFloat) -> UIFont {
     if #available(iOS 11.0, *) {
-      return UIFontMetrics.default.scaledFont(for: font,
-                                              maximumPointSize: maximumPointSize,
-                                              compatibleWith: nil)
+      return UIFontMetrics.default.scaledFont(
+        for: font,
+        maximumPointSize: maximumPointSize,
+        compatibleWith: nil)
     } else {
       return font.withSize(min(scaler * font.pointSize, maximumPointSize))
     }
