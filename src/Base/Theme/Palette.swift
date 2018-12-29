@@ -4,97 +4,163 @@ struct Palette {
   /// The current application palette.
   /// Override this static property to use a custom palette.
   static var current: PaletteProtocol = BasePalette()
-  // Private utility function.
-  static func color(_ hex: String) -> UIColor {
-    return UIColor(hexString: hex)
+
+  /// Swatch styles.
+  enum Style: String {
+    case tintBase
+    case tint900
+    case tint800
+    case tint700
+    case tint600
+    case tint500
+    case tint400
+    case tint300
+    case tint200
+    case tint100
+    case tint50
+    case text
+    case textHigh
+    case textDisabled
+    case invertedText
+    case invertedTextHigh
+    case invertedTextDisabled
   }
 }
 
 protocol PaletteProtocol {
-  // Surfaces.
   var surface: UIColor { get }
   var light: UIColor { get }
   var dark: UIColor { get }
-  var textOnSurfaceMedium: UIColor { get }
-  var textOnSurfaceHigh: UIColor { get }
-  var textOnSurfaceDisabled: UIColor { get }
-  // Primary.
-  var primary: UIColor { get }
-  var primary900: UIColor { get }
-  var primary800: UIColor { get }
-  var primary700: UIColor { get }
-  var primary600: UIColor { get }
-  var primary500: UIColor { get }
-  var primary400: UIColor { get }
-  var primary300: UIColor { get }
-  var primary200: UIColor { get }
-  var primary50: UIColor { get }
-  var textOnPrimaryMedium: UIColor { get }
-  var textOnPrimaryHigh: UIColor { get }
-  var textOnPrimaryDisabled: UIColor { get }
-  var whiteTextOnPrimaryMedium: UIColor { get }
-  var whiteTextOnPrimaryHigh: UIColor { get }
-  var whiteTextOnPrimaryDisabled: UIColor { get }
-  // Secondary.
-  var secondary: UIColor { get }
-  var secondary900: UIColor { get }
-  var secondary800: UIColor { get }
-  var secondary700: UIColor { get }
-  var secondary600: UIColor { get }
-  var secondary500: UIColor { get }
-  var secondary400: UIColor { get }
-  var secondary300: UIColor { get }
-  var secondary200: UIColor { get }
-  var secondary50: UIColor { get }
-  var textOnSecondaryMedium: UIColor { get }
-  var textOnSecondaryHigh: UIColor { get }
-  var textOnSecondaryDisabled: UIColor { get }
-  var whiteTextOnSecondaryMedium: UIColor { get }
-  var whiteTextOnSecondaryHigh: UIColor { get }
-  var whiteTextOnSecondaryDisabled: UIColor { get }
+  var text: UIColor { get }
+  var textHigh: UIColor { get }
+  var textDisabled: UIColor { get }
+  var hairline: UIColor { get }
+
+  /// Returns all of the colors that belong to the primary swatch.
+  func primary(_ style: Palette.Style) -> UIColor
+  /// Returns all of the colors that belong to the secondary swatch.
+  func secondary(_ style: Palette.Style) -> UIColor
 }
 
 class BasePalette: PaletteProtocol {
-  // Surfaces.
-  let surface = Palette.color("#fffbfa")
-  let light = Palette.color("#ffffff")
-  let dark = Palette.color("#f3efee")
-  let textOnSurfaceMedium = Palette.color("#000000")
-  let textOnSurfaceHigh = Palette.color("#442b2d")
-  let textOnSurfaceDisabled = Palette.color("#000000").withAlphaComponent(0.38)
-  // Primary.
-  let primary = Palette.color("#f5f5f5")
-  let primary900 = Palette.color("#212121")
-  let primary800 = Palette.color("#424242")
-  let primary700 = Palette.color("#616161")
-  let primary600 = Palette.color("#757575")
-  let primary500 = Palette.color("#9e9e9e")
-  let primary400 = Palette.color("#bdbdbd")
-  let primary300 = Palette.color("#e0e0e0")
-  let primary200 = Palette.color("#eeeeee")
-  let primary50 = Palette.color("#f5f5f5")
-  let textOnPrimaryMedium = Palette.color("#442b2d")
-  let textOnPrimaryHigh = Palette.color("#442b2d")
-  let textOnPrimaryDisabled = Palette.color("#000000").withAlphaComponent(0.38)
-  let whiteTextOnPrimaryMedium = Palette.color("#ffffff").withAlphaComponent(0.60)
-  let whiteTextOnPrimaryHigh = Palette.color("#ffffff")
-  let whiteTextOnPrimaryDisabled = Palette.color("#ffffff").withAlphaComponent(0.38)
-  // Secondary.
-  let secondary = Palette.color("#b2dfdb")
-  let secondary900 = Palette.color("#004d40")
-  let secondary800 = Palette.color("#00695c")
-  let secondary700 = Palette.color("#00796b")
-  let secondary600 = Palette.color("#00897b")
-  let secondary500 = Palette.color("#009688")
-  let secondary400 = Palette.color("#26a694")
-  let secondary300 = Palette.color("#4d86ac")
-  let secondary200 = Palette.color("#80cbc4")
-  let secondary50 = Palette.color("#82dfdb")
-  let textOnSecondaryMedium = Palette.color("#442b2d")
-  let textOnSecondaryHigh = Palette.color("#442b2d")
-  let textOnSecondaryDisabled = Palette.color("#000000").withAlphaComponent(0.38)
-  let whiteTextOnSecondaryMedium = Palette.color("#ffffff").withAlphaComponent(0.60)
-  let whiteTextOnSecondaryHigh = Palette.color("#ffffff")
-  let whiteTextOnSecondaryDisabled = Palette.color("#ffffff").withAlphaComponent(0.38)
+  let surface = UIColor("#f8f9fa")
+  let light = UIColor("#ffffff")
+  let dark = UIColor("#f15158")
+  let text = UIColor("#130c0c")
+  let textHigh = UIColor("#000000")
+  let textDisabled = UIColor("#000000").withAlphaComponent(0.38)
+  let hairline = UIColor("#dadce0")
+
+  func secondary(_ style: Palette.Style) -> UIColor {
+    switch style {
+    case .tintBase:
+      return UIColor("#f15258")
+    case .tint900:
+      return UIColor("#ba1625")
+    case .tint800:
+      return UIColor("#c92430")
+    case .tint700:
+      return UIColor("#d62b38")
+    case .tint600:
+      return UIColor("#e8353e")
+    case .tint500:
+      return UIColor("#f73e3f")
+    case .tint400:
+      return UIColor("#f15158")
+    case .tint300:
+      return UIColor("#e67379")
+    case .tint200:
+      return UIColor("#ef9a9e")
+    case .tint100:
+      return UIColor("#ffcdd5")
+    case .tint50:
+      return UIColor("#ffebef")
+    case .text:
+      return UIColor("#f15258")
+    case .textHigh:
+      return secondary(.text)
+    case .textDisabled:
+      return textDisabled
+    case .invertedText:
+      return UIColor("#ffffff").withAlphaComponent(0.60)
+    case .invertedTextHigh:
+      return UIColor("#ffffff")
+    case .invertedTextDisabled:
+      return UIColor("#ffffff").withAlphaComponent(0.38)
+    }
+  }
+
+  func primary(_ style: Palette.Style) -> UIColor {
+    switch style {
+    case .tintBase:
+      return UIColor("#5f6368")
+    case .tint900:
+      return UIColor("#202124")
+    case .tint800:
+      return UIColor("#3c4043")
+    case .tint700:
+      return UIColor("#5f6368")
+    case .tint600:
+      return UIColor("#80868b")
+    case .tint500:
+      return UIColor("#9aaca6")
+    case .tint400:
+      return UIColor("#bdc1c6")
+    case .tint300:
+      return UIColor("#dadce0")
+    case .tint200:
+      return UIColor("#e8eaed")
+    case .tint100:
+      return UIColor("#f1f3f4")
+    case .tint50:
+      return UIColor("#f8f9fa")
+    case .text:
+      return text
+    case .textHigh:
+      return textHigh
+    case .textDisabled:
+      return textDisabled
+    case .invertedText:
+      return UIColor("#ffffff").withAlphaComponent(0.60)
+    case .invertedTextHigh:
+      return UIColor("#ffffff")
+    case .invertedTextDisabled:
+      return UIColor("#ffffff").withAlphaComponent(0.38)
+    }
+  }
 }
 
+
+extension UIColor {
+
+  /// Construct a color from a hexadecimal string.
+  convenience init(_ hexString: String) {
+    let hex = hexString.trimmingCharacters(in: CharacterSet.alphanumerics.inverted)
+    var int = UInt32()
+    Scanner(string: hex).scanHexInt32(&int)
+    let a, r, g, b: UInt32
+    switch hex.count {
+    case 3: // RGB (12-bit)
+      (a, r, g, b) = (255, (int >> 8) * 17, (int >> 4 & 0xF) * 17, (int & 0xF) * 17)
+    case 6: // RGB (24-bit)
+      (a, r, g, b) = (255, int >> 16, int >> 8 & 0xFF, int & 0xFF)
+    case 8: // ARGB (32-bit)
+      (a, r, g, b) = (int >> 24, int >> 16 & 0xFF, int >> 8 & 0xFF, int & 0xFF)
+    default:
+      (a, r, g, b) = (255, 0, 0, 0)
+    }
+    self.init(
+      red: CGFloat(r) / 255,
+      green: CGFloat(g) / 255,
+      blue: CGFloat(b) / 255,
+      alpha: CGFloat(a) / 255)
+  }
+
+  /// Returns an image with solid color.
+  func image(_ size: CGSize = CGSize(width: 1, height: 1)) -> UIImage {
+    return UIGraphicsImageRenderer(size: size).image { rendererContext in
+      self.setFill()
+      rendererContext.fill(CGRect(origin: .zero, size: size))
+    }
+  }
+}

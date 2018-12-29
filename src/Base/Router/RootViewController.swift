@@ -6,24 +6,27 @@ class RootViewController: UIViewController {
     super.viewDidLoad()
 
     view.backgroundColor = Palette.current.surface
-    let label = UIButton()
-    label.setAttributedTitle(
-      Typography.current.style(.button).asAttributedString("Edit"),
-      for: .normal)
-    let image = UIImage(named: Icons.edit)?
-      .byResizingToTargetHeight(20)
-      .withTintColor(Typography.current.style(.button).color)
-    label.setImage(image, for: .normal)
-    label.setBackgroundImage(Palette.current.secondary50.image(), for: .normal)
-    label.sizeToFit()
-    let padding: CGFloat = 16
-    label.frame.size.height += padding
-    label.frame.size.width += padding * 2
-    label.layer.cornerRadius = 18
-    label.layer.masksToBounds = true
 
+    let margin: CGFloat = 8
+    let button1 = Button(style: .secondary, title: "Lorem ipsum", icon: Icons.pin_drop)
+    let button2 = Button(style: .secondary,  icon: Icons.edit, raised: true)
+    let label = UILabel()
+    label.attributedText = Typography.current.style(.body2).asAttributedString("""
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+      sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+    """)
+    label.numberOfLines = 0
+    label.textAlignment = .center
+    label.frame.size = label.sizeThatFits(CGSize(width: 300, height: 300))
 
+    button1.center = view.center
+    button2.center = view.center
     label.center = view.center
+    label.frame.origin.y = button1.frame.maxY + margin
+    button2.frame.origin.y = label.frame.maxY + margin
+
+    view.addSubview(button1)
     view.addSubview(label)
+    view.addSubview(button2)
   }
 }

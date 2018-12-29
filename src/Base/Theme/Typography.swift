@@ -4,17 +4,18 @@ class Typography {
   /// The current application typography.
   /// Override this static property to use a custom typography.
   static var current: TypographyProtocol = BaseTypography()
-
+  /// Scale text in your interface automatically by using Dynamic Type and `UIFontMetrics`.
+  /// - note: This is supported only on iOS 11.
+  static var enableDynamicType: Bool = true
   /// - returns: The font name for the given weight.
   /// - note: A `nil` provider results in the system font.
   typealias FontNameProvider = (FontWeight) -> String
 
   /// Represents the desired font weight.
-  enum FontWeight: Int {
+  enum FontWeight: String {
     case light
     case regular
     case medium
-
     /// Returns the associated *UIFontWeight* value.
     var fontWeight: UIFont.Weight {
       switch self {
@@ -29,7 +30,7 @@ class Typography {
   }
 
   /// Target the desired font family.
-  enum Family: Int {
+  enum Family: String {
     case primary
     case secondary
   }
@@ -50,24 +51,39 @@ class Typography {
   }
 
   /// Fonts and its attributes.
-  struct FontDescriptor {
+  struct StyleDescriptor {
     /// The typeface.
-    let font: UIFont
+    private let internalFont: UIFont
     /// The font letter spacing.
-    let kern: CGFloat
+    private let kern: CGFloat
     /// Whether this typeface is meant to be used with uppercased text.
-    var uppercase: Bool
+    private var uppercase: Bool
+    /// Whether this font support dybamic font size.
+    private var supportDynamicType: Bool
     /// The font color.
     var color: UIColor
+    /// Publicly exposed font (subject to font scaling if appliocable).
+    var font: UIFont {
+      guard enableDynamicType, supportDynamicType else {
+        return internalFont
+      }
+      if #available(iOS 11.0, *) {
+        return UIFontMetrics.default.scaledFont(for: internalFont)
+      } else {
+        return internalFont
+      }
+    }
 
     init(
       font: UIFont,
       kern: CGFloat,
       uppercase: Bool = false,
-      color: UIColor = Palette.current.textOnSurfaceMedium) {
-      self.font = font
+      supportDynamicType: Bool = false,
+      color: UIColor = Palette.current.text) {
+      self.internalFont = font
       self.kern = kern
       self.uppercase = uppercase
+      self.supportDynamicType = supportDynamicType
       self.color = color
     }
 
@@ -80,8 +96,13 @@ class Typography {
       ]
     }
     /// Override the `NSForegroundColorAttributeName` attribute.
-    func withColor(_ override: UIColor) -> FontDescriptor {
-      return FontDescriptor(font: font, kern: kern, uppercase: uppercase, color: override)
+    func withColor(_ override: UIColor) -> StyleDescriptor {
+      return StyleDescriptor(
+        font: internalFont,
+        kern: kern,
+        uppercase: uppercase,
+        supportDynamicType: supportDynamicType,
+        color: override)
     }
     /// Returns an attributed string with the current font descriptor attributes.
     func asAttributedString(_ string: String) -> NSAttributedString {
@@ -91,7 +112,7 @@ class Typography {
   }
 
   /// Typographic scale.
-  enum Scale {
+  enum Style: String {
     case h1
     case h2
     case h3
@@ -115,7 +136,7 @@ protocol TypographyProtocol {
   /// Returns the secondary font provider.
   var secondaryFontFamily: Typography.FontNameProvider? { get }
   /// Return the font style for the given typographic scale argument.
-  func style(_ scale: Typography.Scale) -> Typography.FontDescriptor
+  func style(_ scale: Typography.Style) -> Typography.StyleDescriptor
 }
 
 class BaseTypography: TypographyProtocol {
@@ -131,61 +152,68 @@ class BaseTypography: TypographyProtocol {
   }
   let secondaryFontFamily: Typography.FontNameProvider? = nil
 
-  func style(_ scale: Typography.Scale) -> Typography.FontDescriptor {
+  func style(_ scale: Typography.Style) -> Typography.StyleDescriptor {
     switch scale {
     case .h1:
-      return Typography.FontDescriptor(
+      return Typography.StyleDescriptor(
         font: Typography.font(family: .primary, weight: .light, size: 97.54),
         kern: -1.5)
     case .h2: return
-      Typography.FontDescriptor(
+      Typography.StyleDescriptor(
         font: Typography.font(family: .primary, weight: .light, size: 60.96),
         kern: -0.5)
     case .h3:
-      return Typography.FontDescriptor(
+      return Typography.StyleDescriptor(
         font: Typography.font(family: .primary, weight: .regular, size: 48.77),
         kern: 0)
     case .h4:
-      return Typography.FontDescriptor(
+      return Typography.StyleDescriptor(
         font: Typography.font(family: .primary, weight: .regular, size: 34.54),
         kern: 0.25)
     case .h5:
-      return Typography.FontDescriptor(
+      return Typography.StyleDescriptor(
         font: Typography.font(family: .primary, weight: .medium, size: 24.38),
         kern: 0)
     case .h6:
-      return Typography.FontDescriptor(
+      return Typography.StyleDescriptor(
         font: Typography.font(family: .primary, weight: .medium, size: 20.32),
         kern: 0.25)
     case .body1:
-      return Typography.FontDescriptor(
-        font: Typography.font(family: .secondary, weight: .regular, size: 16.26),
-        kern: 0.5)
+      return Typography.StyleDescriptor(
+        font: Typography.font(family: .secondary, weight: .regular, size: 14.26),
+        kern: 0.5,
+        supportDynamicType: true)
     case .body2:
-      return Typography.FontDescriptor(
-        font: Typography.font(family: .secondary, weight: .regular, size: 14.22),
-        kern: 0.25)
+      return Typography.StyleDescriptor(
+        font: Typography.font(family: .secondary, weight: .regular, size: 12.22),
+        kern: 0.25,
+        supportDynamicType: true)
     case .subtitle1:
-      return Typography.FontDescriptor(
+      return Typography.StyleDescriptor(
         font: Typography.font(family: .secondary, weight: .medium, size: 16.25),
-        kern: 0.15)
+        kern: 0.15,
+        supportDynamicType: true)
     case .subtitle2:
-      return Typography.FontDescriptor(
+      return Typography.StyleDescriptor(
         font: Typography.font(family: .secondary, weight: .medium, size: 14.22),
-        kern: 0.1)
+        kern: 0.1,
+        supportDynamicType: true)
     case .button:
-      return Typography.FontDescriptor(
-        font: Typography.font(family: .primary, weight: .medium, size: 14.22),
+      return Typography.StyleDescriptor(
+        font: Typography.font(family: .primary, weight: .medium, size: 12.22),
         kern: 1.25,
-        uppercase: true)
+        uppercase: true,
+        supportDynamicType: true)
     case .caption:
-      return Typography.FontDescriptor(
+      return Typography.StyleDescriptor(
         font: Typography.font(family: .secondary, weight: .regular, size: 12.19),
-        kern: 0.4)
+        kern: 0.4,
+        supportDynamicType: true)
     case .overline:
-      return Typography.FontDescriptor(
+      return Typography.StyleDescriptor(
         font: Typography.font(family: .primary, weight: .medium, size: 12.19),
-        kern: 2)
+        kern: 2,
+        supportDynamicType: true)
     }
   }
 }

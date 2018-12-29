@@ -9,7 +9,7 @@ fi
 
 # Import icon assets.
 # ADD DESIRED ICONS AS ARGS..
-./scripts/_import_icons.sh category edit 
+./scripts/_import_icons.sh category edit place pin_drop
 
 # Generate the xcode project.
 xcodegen;
