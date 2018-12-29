@@ -45,7 +45,7 @@ protocol PaletteProtocol {
 class BasePalette: PaletteProtocol {
   let surface = UIColor("#f8f9fa")
   let light = UIColor("#ffffff")
-  let dark = UIColor("#f15158")
+  let dark = UIColor("#f1f3f4")
   let text = UIColor("#130c0c")
   let textHigh = UIColor("#000000")
   let textDisabled = UIColor("#000000").withAlphaComponent(0.38)

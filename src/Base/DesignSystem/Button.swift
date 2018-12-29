@@ -39,12 +39,16 @@ class Button: UIButton {
     let secondaryTextColor = Palette.current.secondary(.textHigh)
     let textColor = buttonStyle == .primary ? primaryTextColor : secondaryTextColor
     let selectedTextColor = buttonStyle == .primary ? primaryTextColor : primaryTextColor
+    let disabledTextColor = Palette.current.textDisabled
     setAttributedTitle(
       titleFont.withColor(textColor).asAttributedString(displayTitle),
       for: .normal)
     setAttributedTitle(
       titleFont.withColor(selectedTextColor).asAttributedString(displayTitle),
       for: .selected)
+    setAttributedTitle(
+      titleFont.withColor(disabledTextColor).asAttributedString(displayTitle),
+      for: .disabled)
     let commonControlStates = [
       UIControl.State.normal,
       UIControl.State.highlighted,
@@ -57,6 +61,7 @@ class Button: UIButton {
         setImage(image.withTintColor(textColor), for: state)
       }
       setImage(image.withTintColor(selectedTextColor), for: .selected)
+      setImage(image.withTintColor(disabledTextColor), for: .disabled)
     }
     layer.cornerRadius = Constants.defaultCornerRadius
     layer.borderWidth = Constants.defaultBorderWidth
@@ -76,16 +81,17 @@ class Button: UIButton {
     let backgroundColorFocused = buttonStyle == .primary
       ? backgroundColor.withAlphaComponent(0.7)
       : Palette.current.secondary(.tint100)
-    let backgroundColorSelected =  buttonStyle == .primary
+    let backgroundColorSelected = buttonStyle == .primary
       ? Palette.current.secondary(.tint900)
       : Palette.current.secondary(.tint600)
+    let backgroundDisabled = Palette.current.primary(.tint50)
 
     if isHighlighted || isFocused {
       self.backgroundColor = backgroundColorFocused
     } else if isSelected {
       self.backgroundColor = backgroundColorSelected
     } else if !isEnabled {
-      // TODO
+      self.backgroundColor = backgroundDisabled
     } else {
       self.backgroundColor = backgroundColor
     }

@@ -27,6 +27,7 @@
 		BF_A8C782ADAF70E2D55F74C1126681195F /* Motion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FR_99D47F81A0703A8B1C38BD14A9814221 /* Motion.framework */; };
 		BF_AA850D9C9D13FBDCA9E39A8B3F0CC0F8 /* Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = FR_F7D89FB8F5B155DCF14CEE328186689C /* Test.swift */; };
 		BF_AE44F288D3F1ADCAF1EA6D226C385857 /* Rubik-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FR_EF61D38EAE2180550EA6F8E3530AE640 /* Rubik-Medium.ttf */; };
+		BF_B1B696275128267ACDB79AD2CD7BE5D6 /* TextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = FR_4564FCACC90133BF9A6DC00BDE95C660 /* TextField.swift */; };
 		BF_D85BFB75F3182D374AF50F9139E51541 /* Rubik-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FR_6D129A313EC843AD05215105D96F1129 /* Rubik-Light.ttf */; };
 		BF_D9F777B42A488A44C04483773E61F128 /* Icons.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = FR_FBF319FB99646498709632A23B73FF28 /* Icons.generated.swift */; };
 		BF_DEA994292A69A37CAB342AD47CA7AE87 /* Elevation.swift in Sources */ = {isa = PBXBuildFile; fileRef = FR_9215FFFDF8F537B214FBE1A967319FEF /* Elevation.swift */; };
@@ -81,6 +82,7 @@
 		FR_1533B8388DFEDBAEE5C5D012D1B16A36 /* App.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = App.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FR_1DF500947C764DE4BF490E8BB5C51A87 /* Typography.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Typography.swift; sourceTree = "<group>"; };
 		FR_427289E7F7B98C18280A891D3C7DC144 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		FR_4564FCACC90133BF9A6DC00BDE95C660 /* TextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextField.swift; sourceTree = "<group>"; };
 		FR_61901F1C3AEE4CF081FDB63C18A9B0C1 /* RootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
 		FR_65EF361F9AE51E5924DD109B6AA9CFBE /* Test.xctest */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.cfbundle; path = Test.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		FR_6D129A313EC843AD05215105D96F1129 /* Rubik-Light.ttf */ = {isa = PBXFileReference; path = "Rubik-Light.ttf"; sourceTree = "<group>"; };
@@ -205,6 +207,7 @@
 			children = (
 				FR_E41C1F242A4A9BDE072C55615E03DF74 /* Button.swift */,
 				FR_9215FFFDF8F537B214FBE1A967319FEF /* Elevation.swift */,
+				FR_4564FCACC90133BF9A6DC00BDE95C660 /* TextField.swift */,
 			);
 			path = DesignSystem;
 			sourceTree = "<group>";
@@ -363,6 +366,7 @@
 				BF_34AB9591DCD97DED96C22ECF1C0EE3CA /* Icons.swift in Sources */,
 				BF_91B9C3BF55F478D00549943355ACAF86 /* Palette.swift in Sources */,
 				BF_35A254519942C3514E290E803F9AE42E /* RootViewController.swift in Sources */,
+				BF_B1B696275128267ACDB79AD2CD7BE5D6 /* TextField.swift in Sources */,
 				BF_3250B740CF9EB4D20D57B65B4D1194F6 /* Typography.swift in Sources */,
 				BF_27E7DFC268A9680CA53523D8F9AB255A /* YourAppSrc.swift in Sources */,
 			);
