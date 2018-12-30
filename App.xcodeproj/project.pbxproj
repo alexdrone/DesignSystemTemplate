@@ -9,7 +9,8 @@
 /* Begin PBXBuildFile section */
 		BF_0FB02FE51CEBC95CCD3890BDE337CFED /* Elevation.swift in Sources */ = {isa = PBXBuildFile; fileRef = FR_C53AD69184E4C133D5741EE9751DD239 /* Elevation.swift */; };
 		BF_1136DDF53465203EAEEFAAA02B8D6BAF /* Palette.swift in Sources */ = {isa = PBXBuildFile; fileRef = FR_B2EAC1685081BF96FDC8767AAC8D6620 /* Palette.swift */; };
-		BF_1C1D6A6797B47FF5B364032D9FCBCA91 /* MyPlayground.playground in Resources */ = {isa = PBXBuildFile; fileRef = FR_C333CA613C7C93A180F11BEB788AFEAF /* MyPlayground.playground */; };
+		BF_1D582FEFCCA0E1C33D1256ADBE7165F3 /* Rubik-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FR_FC4C4172C7BDB010D7A5DF0B5349190B /* Rubik-Regular.ttf */; };
+		BF_1DB0EBF52A2ABE18D23FA6E3C33888DE /* Rubik-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FR_C664478E0FC98728F02DEEE73AC19279 /* Rubik-Medium.ttf */; };
 		BF_299AAA6F3480C45AEBF2A11EE5A256B3 /* Nuke.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FR_84E049947FEF6D09AF5F2EC638D682D8 /* Nuke.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		BF_3879B1DEDC59AF2D1EB66439DD6854A6 /* YourAppSrc.swift in Sources */ = {isa = PBXBuildFile; fileRef = FR_EA1133D1B8816A223B3AAC66D5E4B4ED /* YourAppSrc.swift */; };
 		BF_38913AB0CA1D890CBDFA586AFE8DD5E2 /* CoreRender.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FR_BD23316BBAEB30C008C424984C33CF91 /* CoreRender.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -23,13 +24,11 @@
 		BF_807269D9B69A40EA9124FDF5F892B52B /* Icons.swift in Sources */ = {isa = PBXBuildFile; fileRef = FR_1FB79B2544155C01C0211528BD69B4EB /* Icons.swift */; };
 		BF_8465E809B12306855660B3A1944F20A4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FR_8687B49E08AD27C366AB6754EC6AF8A6 /* AppDelegate.swift */; };
 		BF_86976CE3FE744BCEAEB3A2D6D4E339BF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FR_427289E7F7B98C18280A891D3C7DC144 /* Assets.xcassets */; };
+		BF_93DDDE280C4A1705212EA1CCA49F4758 /* Rubik-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FR_5C0B1E36E0A936618D7DC635DF558B6F /* Rubik-Light.ttf */; };
 		BF_9C2A16F08BD58FC5474A2553200FDC36 /* Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = FR_C0C82EE2A14F91ABE04E7249D2C4EF65 /* Button.swift */; };
-		BF_9C55A886E0AFFB65B6B0254CB8CEDC47 /* Rubik-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FR_81D24278DF2DEAEA7B375CEC0073AA53 /* Rubik-Regular.ttf */; };
 		BF_A3CFFAAAE284C3B96289342B5D70DF53 /* Emit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FR_0F4404C856B3987FB71DB512102D634A /* Emit.framework */; };
 		BF_A8C782ADAF70E2D55F74C1126681195F /* Motion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FR_99D47F81A0703A8B1C38BD14A9814221 /* Motion.framework */; };
 		BF_AA850D9C9D13FBDCA9E39A8B3F0CC0F8 /* Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = FR_F7D89FB8F5B155DCF14CEE328186689C /* Test.swift */; };
-		BF_AE44F288D3F1ADCAF1EA6D226C385857 /* Rubik-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FR_EF61D38EAE2180550EA6F8E3530AE640 /* Rubik-Medium.ttf */; };
-		BF_D85BFB75F3182D374AF50F9139E51541 /* Rubik-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FR_6D129A313EC843AD05215105D96F1129 /* Rubik-Light.ttf */; };
 		BF_E426397D1DED0698252402C18B7FCA7D /* Nuke.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FR_84E049947FEF6D09AF5F2EC638D682D8 /* Nuke.framework */; };
 		BF_F8C8A8A7F794E10EE95FEE75CED2BB51 /* PromiseKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FR_AF993D05738C0BB4D09FC5C56164157F /* PromiseKit.framework */; };
 		BF_FAC29A0E410C9F9835749BDD72DD7B99 /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FR_5BDAD83F1F9F041BD7C58358190C1185 /* RootViewController.swift */; };
@@ -84,9 +83,8 @@
 		FR_1FB79B2544155C01C0211528BD69B4EB /* Icons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Icons.swift; sourceTree = "<group>"; };
 		FR_427289E7F7B98C18280A891D3C7DC144 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FR_5BDAD83F1F9F041BD7C58358190C1185 /* RootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
+		FR_5C0B1E36E0A936618D7DC635DF558B6F /* Rubik-Light.ttf */ = {isa = PBXFileReference; path = "Rubik-Light.ttf"; sourceTree = "<group>"; };
 		FR_65EF361F9AE51E5924DD109B6AA9CFBE /* Test.xctest */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.cfbundle; path = Test.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		FR_6D129A313EC843AD05215105D96F1129 /* Rubik-Light.ttf */ = {isa = PBXFileReference; path = "Rubik-Light.ttf"; sourceTree = "<group>"; };
-		FR_81D24278DF2DEAEA7B375CEC0073AA53 /* Rubik-Regular.ttf */ = {isa = PBXFileReference; path = "Rubik-Regular.ttf"; sourceTree = "<group>"; };
 		FR_84E049947FEF6D09AF5F2EC638D682D8 /* Nuke.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Nuke.framework; sourceTree = "<group>"; };
 		FR_8687B49E08AD27C366AB6754EC6AF8A6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FR_99D47F81A0703A8B1C38BD14A9814221 /* Motion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Motion.framework; sourceTree = "<group>"; };
@@ -96,11 +94,11 @@
 		FR_B2EAC1685081BF96FDC8767AAC8D6620 /* Palette.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Palette.swift; sourceTree = "<group>"; };
 		FR_BD23316BBAEB30C008C424984C33CF91 /* CoreRender.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreRender.framework; path = frameworks/CoreRender.framework; sourceTree = "<group>"; };
 		FR_C0C82EE2A14F91ABE04E7249D2C4EF65 /* Button.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Button.swift; sourceTree = "<group>"; };
-		FR_C333CA613C7C93A180F11BEB788AFEAF /* MyPlayground.playground */ = {isa = PBXFileReference; path = MyPlayground.playground; sourceTree = "<group>"; };
 		FR_C53AD69184E4C133D5741EE9751DD239 /* Elevation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Elevation.swift; sourceTree = "<group>"; };
+		FR_C664478E0FC98728F02DEEE73AC19279 /* Rubik-Medium.ttf */ = {isa = PBXFileReference; path = "Rubik-Medium.ttf"; sourceTree = "<group>"; };
 		FR_EA1133D1B8816A223B3AAC66D5E4B4ED /* YourAppSrc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YourAppSrc.swift; sourceTree = "<group>"; };
-		FR_EF61D38EAE2180550EA6F8E3530AE640 /* Rubik-Medium.ttf */ = {isa = PBXFileReference; path = "Rubik-Medium.ttf"; sourceTree = "<group>"; };
 		FR_F7D89FB8F5B155DCF14CEE328186689C /* Test.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Test.swift; sourceTree = "<group>"; };
+		FR_FC4C4172C7BDB010D7A5DF0B5349190B /* Rubik-Regular.ttf */ = {isa = PBXFileReference; path = "Rubik-Regular.ttf"; sourceTree = "<group>"; };
 		FR_FCD930C2347B6334E434B34877B80012 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -120,6 +118,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		G_0638C527852D32DFB102CD6410BE7420 /* resources */ = {
+			isa = PBXGroup;
+			children = (
+				FR_5C0B1E36E0A936618D7DC635DF558B6F /* Rubik-Light.ttf */,
+				FR_C664478E0FC98728F02DEEE73AC19279 /* Rubik-Medium.ttf */,
+				FR_FC4C4172C7BDB010D7A5DF0B5349190B /* Rubik-Regular.ttf */,
+			);
+			path = resources;
+			sourceTree = "<group>";
+		};
 		G_14DB883880FD53FE3D9030F8565D4F9E /* app */ = {
 			isa = PBXGroup;
 			children = (
@@ -148,8 +156,7 @@
 				VG_8016FF6360F2A0CD0E8F7FF6257C3D84 /* LaunchScreen.storyboard */,
 				G_14DB883880FD53FE3D9030F8565D4F9E /* app */,
 				G_7F760026760C8821F1CBDAA85ABF1AAF /* design */,
-				G_90399485DB8DFD43306D9AE1E7ED0CF3 /* Playgrounds */,
-				G_9772BECE2545E04D8B0B6E7CC7994C95 /* Resources */,
+				G_0638C527852D32DFB102CD6410BE7420 /* resources */,
 				G_D7C03E269BE6327CA23B55CEE15A8768 /* router */,
 			);
 			path = src;
@@ -193,24 +200,6 @@
 				G_7E250F9ED6EFB2BC29095376F060E04A /* theme */,
 			);
 			path = design;
-			sourceTree = "<group>";
-		};
-		G_90399485DB8DFD43306D9AE1E7ED0CF3 /* Playgrounds */ = {
-			isa = PBXGroup;
-			children = (
-				FR_C333CA613C7C93A180F11BEB788AFEAF /* MyPlayground.playground */,
-			);
-			path = Playgrounds;
-			sourceTree = "<group>";
-		};
-		G_9772BECE2545E04D8B0B6E7CC7994C95 /* Resources */ = {
-			isa = PBXGroup;
-			children = (
-				FR_6D129A313EC843AD05215105D96F1129 /* Rubik-Light.ttf */,
-				FR_EF61D38EAE2180550EA6F8E3530AE640 /* Rubik-Medium.ttf */,
-				FR_81D24278DF2DEAEA7B375CEC0073AA53 /* Rubik-Regular.ttf */,
-			);
-			path = Resources;
 			sourceTree = "<group>";
 		};
 		G_97C06C1515867840A84E6BEA3D587048 /* components */ = {
@@ -333,10 +322,9 @@
 			files = (
 				BF_86976CE3FE744BCEAEB3A2D6D4E339BF /* Assets.xcassets in Resources */,
 				BF_6FBDF7E8D3A95B83A11F1B6E5A5AF3ED /* LaunchScreen.storyboard in Resources */,
-				BF_1C1D6A6797B47FF5B364032D9FCBCA91 /* MyPlayground.playground in Resources */,
-				BF_D85BFB75F3182D374AF50F9139E51541 /* Rubik-Light.ttf in Resources */,
-				BF_AE44F288D3F1ADCAF1EA6D226C385857 /* Rubik-Medium.ttf in Resources */,
-				BF_9C55A886E0AFFB65B6B0254CB8CEDC47 /* Rubik-Regular.ttf in Resources */,
+				BF_93DDDE280C4A1705212EA1CCA49F4758 /* Rubik-Light.ttf in Resources */,
+				BF_1DB0EBF52A2ABE18D23FA6E3C33888DE /* Rubik-Medium.ttf in Resources */,
+				BF_1D582FEFCCA0E1C33D1256ADBE7165F3 /* Rubik-Regular.ttf in Resources */,
 				BF_458879C39E21A81DED61466743AEF4EE /* generate_project.sh in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
