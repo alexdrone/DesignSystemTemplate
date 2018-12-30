@@ -2,9 +2,12 @@ import UIKit
 
 class TextField: UITextField {
   struct Constants {
-    static let defaultHeight: CGFloat = 44
-    static let defaultLeftPadding: CGFloat = 16
+    static let defaultHeight: CGFloat = 48
+    static let defaultLeftPadding: CGFloat = 12
     static let defaultCornerRadius: CGFloat = 8
+    static let defaultIconSize: CGFloat = 24
+    static let defaultNormalDepth = DepthPreset.depth1
+    static let defaultActiveDepth = DepthPreset.depth3
   }
   /// The textfield change elevation on touch.
   private var isRaised: Bool = false
@@ -20,8 +23,12 @@ class TextField: UITextField {
     backgroundColor = Palette.current.light
     layer.cornerRadius = Constants.defaultCornerRadius
     layer.masksToBounds = false
-    layer.borderWidth = 1
-    layer.borderColor = Palette.current.hairline.cgColor
+    if (isRaised) {
+      depthPreset = Constants.defaultNormalDepth
+    } else {
+      layer.borderWidth = 1
+      layer.borderColor = Palette.current.hairline.cgColor
+    }
     font = Typography.current.style(.subtitle2).font
     textColor = Palette.current.text
     if let icon = icon {
@@ -38,17 +45,13 @@ class TextField: UITextField {
   }
   /// The desired left icon.
   var leftImage: UIImage? {
-    didSet {
-      updateView()
-    }
+    didSet { updateView() }
   }
   /// Padding for the left icon.
   var leftPadding: CGFloat = Constants.defaultLeftPadding
   /// Transform the text into attributed text whenever is set.
   override var text: String? {
-    didSet {
-      updateView()
-    }
+    didSet { updateView() }
   }
   /// Override is focused to get elevation change.
   override func becomeFirstResponder() -> Bool {
@@ -56,7 +59,7 @@ class TextField: UITextField {
     guard isRaised else {
       return result
     }
-    depthPreset = result ? .depth3 : .none
+    depthPreset = result ? Constants.defaultActiveDepth : Constants.defaultNormalDepth
     return result
   }
 
@@ -64,21 +67,25 @@ class TextField: UITextField {
   private func updateView() {
     if let image = leftImage {
       leftViewMode = UITextField.ViewMode.always
-      let imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 24, height: 24))
+      let imageView = UIImageView(frame:CGRect(
+        x: 0,
+        y: 0,
+        width: Constants.defaultIconSize + Constants.defaultLeftPadding,
+        height: Constants.defaultIconSize))
       imageView.contentMode = .scaleAspectFit
       imageView.image = image
-      imageView.tintColor = Palette.current.textDisabled
+      imageView.tintColor = Palette.current.primary(.tint700)
       leftView = imageView
     } else {
       leftViewMode = UITextField.ViewMode.always
-      leftView = UIView(frame: CGRect(x: 0, y: 0, width: leftPadding, height: 1))
+      leftView = UIView(frame: CGRect(x: 0, y: 0, width: leftPadding, height: 0))
     }
     // Placeholder text color
     let placeholder = self.placeholder ?? ""
     attributedPlaceholder =
       Typography.current
         .style(.subtitle2)
-        .withColor(Palette.current.textDisabled)
+        .withColor(Palette.current.primary(.tint700))
         .asAttributedString(placeholder)
     if let text = text {
       attributedText =
