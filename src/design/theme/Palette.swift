@@ -1,10 +1,6 @@
 import UIKit
 
 struct Palette {
-  /// The current application palette.
-  /// Override this static property to use a custom palette.
-  static var current: PaletteProtocol = BasePalette()
-
   /// Swatch styles.
   enum Style: String {
     case tintBase

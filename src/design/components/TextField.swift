@@ -1,10 +1,11 @@
 import UIKit
 
 class TextField: UITextField {
-  struct Constants {
+  // Internal constants.
+  private struct Constants {
     static let defaultHeight: CGFloat = 48
     static let defaultLeftPadding: CGFloat = 12
-    static let defaultCornerRadius: CGFloat = 8
+    static let defaultCornerRadius: CGFloat = Theme.Geometry.defaultCornerRadius
     static let defaultIconSize: CGFloat = 24
     static let defaultNormalDepth = DepthPreset.depth1
     static let defaultActiveDepth = DepthPreset.depth3
@@ -20,17 +21,17 @@ class TextField: UITextField {
     self.init(frame: CGRect.zero)
     self.placeholder = placeholder
     self.isRaised = raised
-    backgroundColor = Palette.current.light
+    backgroundColor = Theme.palette.light
     layer.cornerRadius = Constants.defaultCornerRadius
     layer.masksToBounds = false
     if (isRaised) {
       depthPreset = Constants.defaultNormalDepth
     } else {
       layer.borderWidth = 1
-      layer.borderColor = Palette.current.hairline.cgColor
+      layer.borderColor = Theme.palette.hairline.cgColor
     }
-    font = Typography.current.style(.subtitle2).font
-    textColor = Palette.current.text
+    font = Theme.typography.style(.subtitle2).font
+    textColor = Theme.palette.text
     if let icon = icon {
       leftImage = UIImage(named: icon)
     }
@@ -74,7 +75,7 @@ class TextField: UITextField {
         height: Constants.defaultIconSize))
       imageView.contentMode = .scaleAspectFit
       imageView.image = image
-      imageView.tintColor = Palette.current.primary(.tint700)
+      imageView.tintColor = Theme.palette.primary(.tint700)
       leftView = imageView
     } else {
       leftViewMode = UITextField.ViewMode.always
@@ -83,15 +84,15 @@ class TextField: UITextField {
     // Placeholder text color
     let placeholder = self.placeholder ?? ""
     attributedPlaceholder =
-      Typography.current
+      Theme.typography
         .style(.subtitle2)
-        .withColor(Palette.current.primary(.tint700))
+        .withColor(Theme.palette.primary(.tint700))
         .asAttributedString(placeholder)
     if let text = text {
       attributedText =
-        Typography.current
+        Theme.typography
           .style(.subtitle2)
-          .withColor(Palette.current.text)
+          .withColor(Theme.palette.text)
           .asAttributedString(text)
     }
   }

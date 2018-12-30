@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1617645D21D91E02002C0EE6 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1617645C21D91E02002C0EE6 /* Theme.swift */; };
 		BF_0FB02FE51CEBC95CCD3890BDE337CFED /* Elevation.swift in Sources */ = {isa = PBXBuildFile; fileRef = FR_C53AD69184E4C133D5741EE9751DD239 /* Elevation.swift */; };
 		BF_1136DDF53465203EAEEFAAA02B8D6BAF /* Palette.swift in Sources */ = {isa = PBXBuildFile; fileRef = FR_B2EAC1685081BF96FDC8767AAC8D6620 /* Palette.swift */; };
 		BF_1D582FEFCCA0E1C33D1256ADBE7165F3 /* Rubik-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FR_FC4C4172C7BDB010D7A5DF0B5349190B /* Rubik-Regular.ttf */; };
@@ -75,6 +76,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		1617645C21D91E02002C0EE6 /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
 		FR_0ACD90CFF4242EFC314E77224C6D627B /* generate_project.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = generate_project.sh; sourceTree = "<group>"; };
 		FR_0F4404C856B3987FB71DB512102D634A /* Emit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Emit.framework; path = frameworks/Emit.framework; sourceTree = "<group>"; };
 		FR_1533B8388DFEDBAEE5C5D012D1B16A36 /* App.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = App.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -83,7 +85,7 @@
 		FR_1FB79B2544155C01C0211528BD69B4EB /* Icons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Icons.swift; sourceTree = "<group>"; };
 		FR_427289E7F7B98C18280A891D3C7DC144 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FR_5BDAD83F1F9F041BD7C58358190C1185 /* RootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
-		FR_5C0B1E36E0A936618D7DC635DF558B6F /* Rubik-Light.ttf */ = {isa = PBXFileReference; path = "Rubik-Light.ttf"; sourceTree = "<group>"; };
+		FR_5C0B1E36E0A936618D7DC635DF558B6F /* Rubik-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Rubik-Light.ttf"; sourceTree = "<group>"; };
 		FR_65EF361F9AE51E5924DD109B6AA9CFBE /* Test.xctest */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.cfbundle; path = Test.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		FR_84E049947FEF6D09AF5F2EC638D682D8 /* Nuke.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Nuke.framework; sourceTree = "<group>"; };
 		FR_8687B49E08AD27C366AB6754EC6AF8A6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -95,10 +97,10 @@
 		FR_BD23316BBAEB30C008C424984C33CF91 /* CoreRender.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreRender.framework; path = frameworks/CoreRender.framework; sourceTree = "<group>"; };
 		FR_C0C82EE2A14F91ABE04E7249D2C4EF65 /* Button.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Button.swift; sourceTree = "<group>"; };
 		FR_C53AD69184E4C133D5741EE9751DD239 /* Elevation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Elevation.swift; sourceTree = "<group>"; };
-		FR_C664478E0FC98728F02DEEE73AC19279 /* Rubik-Medium.ttf */ = {isa = PBXFileReference; path = "Rubik-Medium.ttf"; sourceTree = "<group>"; };
+		FR_C664478E0FC98728F02DEEE73AC19279 /* Rubik-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Rubik-Medium.ttf"; sourceTree = "<group>"; };
 		FR_EA1133D1B8816A223B3AAC66D5E4B4ED /* YourAppSrc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YourAppSrc.swift; sourceTree = "<group>"; };
 		FR_F7D89FB8F5B155DCF14CEE328186689C /* Test.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Test.swift; sourceTree = "<group>"; };
-		FR_FC4C4172C7BDB010D7A5DF0B5349190B /* Rubik-Regular.ttf */ = {isa = PBXFileReference; path = "Rubik-Regular.ttf"; sourceTree = "<group>"; };
+		FR_FC4C4172C7BDB010D7A5DF0B5349190B /* Rubik-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Rubik-Regular.ttf"; sourceTree = "<group>"; };
 		FR_FCD930C2347B6334E434B34877B80012 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -186,6 +188,7 @@
 			isa = PBXGroup;
 			children = (
 				FR_1E4CC9F8C9244C70E6823E8E7A707A06 /* Icons.generated.swift */,
+				1617645C21D91E02002C0EE6 /* Theme.swift */,
 				FR_1FB79B2544155C01C0211528BD69B4EB /* Icons.swift */,
 				FR_B2EAC1685081BF96FDC8767AAC8D6620 /* Palette.swift */,
 				FR_18CE8F644703A1382A1BEB3BDAF84CF3 /* Typography.swift */,
@@ -363,6 +366,7 @@
 				BF_9C2A16F08BD58FC5474A2553200FDC36 /* Button.swift in Sources */,
 				BF_0FB02FE51CEBC95CCD3890BDE337CFED /* Elevation.swift in Sources */,
 				BF_4FCAFE58F4F28248562094B7ECC6E8F6 /* Icons.generated.swift in Sources */,
+				1617645D21D91E02002C0EE6 /* Theme.swift in Sources */,
 				BF_807269D9B69A40EA9124FDF5F892B52B /* Icons.swift in Sources */,
 				BF_1136DDF53465203EAEEFAAA02B8D6BAF /* Palette.swift in Sources */,
 				BF_FAC29A0E410C9F9835749BDD72DD7B99 /* RootViewController.swift in Sources */,

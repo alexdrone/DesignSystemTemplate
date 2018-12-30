@@ -4,7 +4,7 @@ class Button: UIButton {
   // Internal constants.
   private struct Constants {
     static let defaultIconSize: CGFloat = 20
-    static let defaultCornerRadius: CGFloat = 8
+    static let defaultCornerRadius: CGFloat = Theme.Geometry.defaultCornerRadius
     static let defaultBorderWidth: CGFloat = 1
     static let defaultVerticalPadding: CGFloat = 12
     static let defaultHorizontalPadding: CGFloat = 24
@@ -34,12 +34,12 @@ class Button: UIButton {
     buttonStyle = style
     isRaised = raised
     let displayTitle = title.isEmpty ? title : "  \(title)"
-    let titleFont = Typography.current.style(.button)
-    let primaryTextColor = Palette.current.secondary(.invertedTextHigh)
-    let secondaryTextColor = Palette.current.secondary(.textHigh)
+    let titleFont = Theme.typography.style(.button)
+    let primaryTextColor = Theme.palette.secondary(.invertedTextHigh)
+    let secondaryTextColor = Theme.palette.secondary(.textHigh)
     let textColor = buttonStyle == .primary ? primaryTextColor : secondaryTextColor
     let selectedTextColor = buttonStyle == .primary ? primaryTextColor : primaryTextColor
-    let disabledTextColor = Palette.current.textDisabled
+    let disabledTextColor = Theme.palette.textDisabled
     setAttributedTitle(
       titleFont.withColor(textColor).asAttributedString(displayTitle),
       for: .normal)
@@ -65,7 +65,7 @@ class Button: UIButton {
     }
     layer.cornerRadius = Constants.defaultCornerRadius
     layer.borderWidth = Constants.defaultBorderWidth
-    layer.borderColor = Palette.current.hairline.cgColor
+    layer.borderColor = Theme.palette.hairline.cgColor
     if (!hasTitle) {
       let width = Constants.defaultIconSize + Constants.defaultHorizontalPadding
       layer.cornerRadius = width / 2
@@ -76,15 +76,15 @@ class Button: UIButton {
 
   private func updateBackground() {
     let backgroundColor = buttonStyle == .primary
-      ? Palette.current.secondary(.tint600)
-      : Palette.current.light
+      ? Theme.palette.secondary(.tint600)
+      : Theme.palette.light
     let backgroundColorFocused = buttonStyle == .primary
       ? backgroundColor.withAlphaComponent(0.7)
-      : Palette.current.secondary(.tint100)
+      : Theme.palette.secondary(.tint100)
     let backgroundColorSelected = buttonStyle == .primary
-      ? Palette.current.secondary(.tint900)
-      : Palette.current.secondary(.tint600)
-    let backgroundDisabled = Palette.current.primary(.tint50)
+      ? Theme.palette.secondary(.tint900)
+      : Theme.palette.secondary(.tint600)
+    let backgroundDisabled = Theme.palette.primary(.tint50)
 
     if isHighlighted || isFocused {
       self.backgroundColor = backgroundColorFocused

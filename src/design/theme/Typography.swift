@@ -1,9 +1,6 @@
 import UIKit
 
 class Typography {
-  /// The current application typography.
-  /// Override this static property to use a custom typography.
-  static var current: TypographyProtocol = BaseTypography()
   /// Scale text in your interface automatically by using Dynamic Type and `UIFontMetrics`.
   /// - note: This is supported only on iOS 11.
   static var enableDynamicType: Bool = true
@@ -40,9 +37,9 @@ class Typography {
     var provider: Typography.FontNameProvider? = nil
     switch family {
     case .primary:
-      provider = current.primaryFontFamily
+      provider = Theme.typography.primaryFontFamily
     case .secondary:
-      provider = current.secondaryFontFamily
+      provider = Theme.typography.secondaryFontFamily
     }
     guard let fontProvider = provider else {
       return UIFont.systemFont(ofSize: size, weight: weight.fontWeight)
@@ -79,7 +76,7 @@ class Typography {
       kern: CGFloat,
       uppercase: Bool = false,
       supportDynamicType: Bool = false,
-      color: UIColor = Palette.current.text) {
+      color: UIColor = Theme.palette.text) {
       self.internalFont = font
       self.kern = kern
       self.uppercase = uppercase

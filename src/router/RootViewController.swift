@@ -5,14 +5,14 @@ class RootViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
 
-    view.backgroundColor = Palette.current.surface
+    view.backgroundColor = Theme.palette.surface
 
     let margin: CGFloat = 8
     let button1 = Button(style: .secondary, title: "Lorem ipsum", icon: Icons.pin_drop)
     let button2 = Button(style: .secondary,  icon: Icons.edit, raised: true)
     let textField = TextField(placeholder: "Quaerere...", icon: Icons.search)
     let label = UILabel()
-    label.attributedText = Typography.current.style(.body2).asAttributedString("""
+    label.attributedText = Theme.typography.style(.body2).asAttributedString("""
       Lorem ipsum dolor sit amet, consectetur adipiscing elit,
       sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
     """)
