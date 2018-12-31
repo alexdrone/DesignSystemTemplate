@@ -210,6 +210,7 @@ class BaseTypography: TypographyProtocol {
       return Typography.StyleDescriptor(
         font: Typography.font(family: .primary, weight: .medium, size: 12.19),
         kern: 2,
+        uppercase: true,
         supportDynamicType: true)
     }
   }
