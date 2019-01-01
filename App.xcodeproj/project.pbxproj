@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		1617645D21D91E02002C0EE6 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1617645C21D91E02002C0EE6 /* Theme.swift */; };
+		167A2B2E21DBBEAF00E1AE0C /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 167A2B2D21DBBEAF00E1AE0C /* Card.swift */; };
 		16E173D921DA587B002EDA89 /* CatalogViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16E173D821DA587B002EDA89 /* CatalogViewController.swift */; };
 		16E173DB21DA5B5F002EDA89 /* Label.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16E173DA21DA5B5F002EDA89 /* Label.swift */; };
 		BF_0FB02FE51CEBC95CCD3890BDE337CFED /* Elevation.swift in Sources */ = {isa = PBXBuildFile; fileRef = FR_C53AD69184E4C133D5741EE9751DD239 /* Elevation.swift */; };
@@ -78,6 +79,7 @@
 
 /* Begin PBXFileReference section */
 		1617645C21D91E02002C0EE6 /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
+		167A2B2D21DBBEAF00E1AE0C /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
 		16E173D821DA587B002EDA89 /* CatalogViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogViewController.swift; sourceTree = "<group>"; };
 		16E173DA21DA5B5F002EDA89 /* Label.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Label.swift; sourceTree = "<group>"; };
 		FR_0ACD90CFF4242EFC314E77224C6D627B /* generate_project.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = generate_project.sh; sourceTree = "<group>"; };
@@ -222,6 +224,7 @@
 				FR_C53AD69184E4C133D5741EE9751DD239 /* Elevation.swift */,
 				FR_9A53553074E0BF80AFD3BC509114B2BF /* TextField.swift */,
 				16E173DA21DA5B5F002EDA89 /* Label.swift */,
+				167A2B2D21DBBEAF00E1AE0C /* Card.swift */,
 			);
 			path = components;
 			sourceTree = "<group>";
@@ -369,6 +372,7 @@
 				BF_8465E809B12306855660B3A1944F20A4 /* AppDelegate.swift in Sources */,
 				BF_9C2A16F08BD58FC5474A2553200FDC36 /* Button.swift in Sources */,
 				BF_0FB02FE51CEBC95CCD3890BDE337CFED /* Elevation.swift in Sources */,
+				167A2B2E21DBBEAF00E1AE0C /* Card.swift in Sources */,
 				BF_4FCAFE58F4F28248562094B7ECC6E8F6 /* Icons.generated.swift in Sources */,
 				16E173DB21DA5B5F002EDA89 /* Label.swift in Sources */,
 				1617645D21D91E02002C0EE6 /* Theme.swift in Sources */,

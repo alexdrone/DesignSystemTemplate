@@ -173,7 +173,7 @@ class BaseTypography: TypographyProtocol {
         kern: 0)
     case .h6:
       return Typography.StyleDescriptor(
-        font: Typography.font(family: .primary, weight: .medium, size: 20.32),
+        font: Typography.font(family: .primary, weight: .light, size: 14.26),
         kern: 0.25)
     case .body1:
       return Typography.StyleDescriptor(

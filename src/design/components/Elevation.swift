@@ -141,10 +141,13 @@ class ContainerLayer {
       guard let v = layer else {
         return
       }
+      CATransaction.begin()
+      CATransaction.setAnimationDuration(0.4)
       v.shadowOffset = depth.offset.asSize
       v.shadowOpacity = depth.opacity
       v.shadowRadius = depth.radius
       v.layoutShadowPath()
+      CATransaction.commit()
     }
   }
   /// Enables automatic shadowPath sizing.

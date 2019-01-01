@@ -47,45 +47,6 @@ class BasePalette: PaletteProtocol {
   let textDisabled = UIColor("#000000").withAlphaComponent(0.38)
   let hairline = UIColor("#dadce0")
 
-  func secondary(_ style: Palette.Style) -> UIColor {
-    switch style {
-    case .tintBase:
-      return UIColor("#f15258")
-    case .tint900:
-      return UIColor("#ba1625")
-    case .tint800:
-      return UIColor("#c92430")
-    case .tint700:
-      return UIColor("#d62b38")
-    case .tint600:
-      return UIColor("#e8353e")
-    case .tint500:
-      return UIColor("#f73e3f")
-    case .tint400:
-      return UIColor("#f15158")
-    case .tint300:
-      return UIColor("#e67379")
-    case .tint200:
-      return UIColor("#ef9a9e")
-    case .tint100:
-      return UIColor("#ffcdd5")
-    case .tint50:
-      return UIColor("#ffebef")
-    case .text:
-      return UIColor("#f15258")
-    case .textHigh:
-      return secondary(.text)
-    case .textDisabled:
-      return textDisabled
-    case .invertedText:
-      return UIColor("#ffffff").withAlphaComponent(0.60)
-    case .invertedTextHigh:
-      return UIColor("#ffffff")
-    case .invertedTextDisabled:
-      return UIColor("#ffffff").withAlphaComponent(0.38)
-    }
-  }
-
   func primary(_ style: Palette.Style) -> UIColor {
     switch style {
     case .tintBase:
@@ -124,8 +85,11 @@ class BasePalette: PaletteProtocol {
       return UIColor("#ffffff").withAlphaComponent(0.38)
     }
   }
-}
 
+  func secondary(_ style: Palette.Style) -> UIColor {
+    return Palette.DefaultSwatches.red(style)
+  }
+}
 
 extension UIColor {
 
@@ -160,3 +124,48 @@ extension UIColor {
     }
   }
 }
+
+extension Palette {
+  struct DefaultSwatches {
+    // Default red palette.
+    static func red(_ style: Palette.Style) -> UIColor {
+      switch style {
+      case .tintBase:
+        return UIColor("#f15258")
+      case .tint900:
+        return UIColor("#ba1625")
+      case .tint800:
+        return UIColor("#c92430")
+      case .tint700:
+        return UIColor("#d62b38")
+      case .tint600:
+        return UIColor("#e8353e")
+      case .tint500:
+        return UIColor("#f73e3f")
+      case .tint400:
+        return UIColor("#f15158")
+      case .tint300:
+        return UIColor("#e67379")
+      case .tint200:
+        return UIColor("#ef9a9e")
+      case .tint100:
+        return UIColor("#ffcdd5")
+      case .tint50:
+        return UIColor("#ffebef")
+      case .text:
+        return UIColor("#f15258")
+      case .textHigh:
+        return UIColor("#f15258")
+      case .textDisabled:
+        return UIColor("#000000").withAlphaComponent(0.38)
+      case .invertedText:
+        return UIColor("#ffffff").withAlphaComponent(0.60)
+      case .invertedTextHigh:
+        return UIColor("#ffffff")
+      case .invertedTextDisabled:
+        return UIColor("#ffffff").withAlphaComponent(0.38)
+      }
+    }
+  }
+}
+

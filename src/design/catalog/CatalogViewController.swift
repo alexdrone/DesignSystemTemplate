@@ -23,10 +23,10 @@ class CatalogViewController: UIViewController {
     raised: true)
   private let primaryButtonNoText = Button(
     style: .primary,
-    icon: Icons.edit)
+    icon: Icons.search)
   private let secondaryButtonNoText = Button(
     style: .secondary,
-    icon: Icons.edit,
+    icon: Icons.search,
     raised: true)
   private let disabledButton = Button(
     style: .secondary,
@@ -51,6 +51,20 @@ class CatalogViewController: UIViewController {
   private let overlineLabel = Label(
     style: .overline,
     text: "Overline — Lorem ipsum dolor sit amet.")
+  // Textfield.
+  private let textField = TextField(
+    placeholder: "Textfield",
+    icon: Icons.search,
+    raised: false)
+  private let textFieldRaised = TextField(
+    placeholder: "Textfield Raised",
+    icon: Icons.search,
+    raised: true)
+  // Cards.
+  private let compactCard = makeCard(style: Card.Style.compact)
+  private let midCard = makeCard(style: Card.Style.mid)
+  private let postageCard = makeCard(style: Card.Style.postage)
+  private let headlineCard = makeCard(style: Card.Style.headline)
 
   override func loadView() {
     view = UIScrollView()
@@ -68,6 +82,12 @@ class CatalogViewController: UIViewController {
     view.addSubview(subtitle2Label)
     view.addSubview(captionLabel)
     view.addSubview(overlineLabel)
+    view.addSubview(textField)
+    view.addSubview(textFieldRaised)
+    view.addSubview(compactCard)
+    view.addSubview(midCard)
+    view.addSubview(postageCard)
+    view.addSubview(headlineCard)
   }
 
   override func viewDidLayoutSubviews() {
@@ -86,6 +106,18 @@ class CatalogViewController: UIViewController {
     }
     guard let scrollView = view as? UIScrollView else { return }
     scrollView.contentSize = CGSize(width: view.bounds.size.width, height: y)
+  }
+
+  private static func makeCard(style: String) -> Card {
+    let card = Card()
+    card.style = style
+    card.title = style.capitalized
+    card.image = UIImage(named: "imagery_aerial")!
+    card.subtitle =
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod " +
+      "tempor, incididunt ut labore et dolore magna aliqua."
+    card.setNeedsUpdate()
+    return card
   }
 
 }

@@ -64,7 +64,15 @@ class TextField: UITextField {
     return result
   }
 
-  /// Update the
+  override func resignFirstResponder() -> Bool {
+    let result = super.resignFirstResponder()
+    guard isRaised else {
+      return result
+    }
+    depthPreset = result ? Constants.defaultNormalDepth : Constants.defaultActiveDepth
+    return result
+  }
+
   private func updateView() {
     if let image = leftImage {
       leftViewMode = UITextField.ViewMode.always
@@ -97,6 +105,7 @@ class TextField: UITextField {
     }
   }
 
+  /// Asks the view to calculate and return the size that best fits the specified size.
   override func sizeThatFits(_ size: CGSize) -> CGSize {
     return CGSize(width: size.width, height: Constants.defaultHeight)
   }
