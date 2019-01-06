@@ -1,16 +1,16 @@
 import UIKit
 
-class Button: UIButton {
+public class Button: UIButton {
   // Internal constants.
-  private struct Constants {
-    static let defaultIconSize: CGFloat = 20
-    static let defaultCornerRadius: CGFloat = Theme.Geometry.defaultCornerRadius
-    static let defaultBorderWidth: CGFloat = 1
-    static let defaultVerticalPadding: CGFloat = 12
-    static let defaultHorizontalPadding: CGFloat = 24
+  public struct Constants {
+    public static var defaultIconSize: CGFloat = 20
+    public static var defaultCornerRadius: CGFloat = Theme.Geometry.defaultCornerRadius
+    public static var defaultBorderWidth: CGFloat = 1
+    public static var defaultVerticalPadding: CGFloat = 12
+    public static var defaultHorizontalPadding: CGFloat = 24
   }
 
-  enum Style: Int {
+  public enum Style: Int {
     /// Used for primary action buttons.
     case primary
     /// Used for secondary action buttons.
@@ -23,7 +23,7 @@ class Button: UIButton {
   /// The button change elevation on touch.
   private var isRaised: Bool = false
 
-  convenience init(
+  public convenience init(
     style: Button.Style,
     title: String = "",
     icon: String? = nil,
@@ -111,19 +111,19 @@ class Button: UIButton {
 
   // MARK: Overrides
 
-  override open var isHighlighted: Bool {
+  open override  var isHighlighted: Bool {
     didSet { updateBackground() }
   }
 
-  override var isSelected: Bool {
+  open override var isSelected: Bool {
     didSet { updateBackground() }
   }
 
-  override var isEnabled: Bool {
+  open override var isEnabled: Bool {
     didSet { updateBackground() }
   }
 
-  override func sizeThatFits(_ size: CGSize) -> CGSize {
+  open override func sizeThatFits(_ size: CGSize) -> CGSize {
     var result = super.sizeThatFits(size)
     result.width += Constants.defaultHorizontalPadding
     result.height += hasTitle
@@ -131,5 +131,4 @@ class Button: UIButton {
       : Constants.defaultHorizontalPadding
     return result
   }
-
 }

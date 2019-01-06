@@ -3,7 +3,7 @@
 icons="src/design/theme/Icons.generated.swift";
 rm $icons;
 touch $icons;
-printf "import UIKit\n\nstruct Icons {\n" >> $icons;
+printf "import UIKit\n\npublic struct Icons {\n" >> $icons;
 for var in "$@"
 do
   source="resources/icons/${var}.pdf"
@@ -16,7 +16,7 @@ do
     mkdir $dest;
     cp $source $dest;
     echo "{\"images\" : [{\"idiom\" : \"universal\",\"filename\" : \"${var}.pdf\",\"scale\" : \"1x\"},{\"idiom\" : \"universal\",\"filename\" : \"${var}.pdf\",\"scale\" : \"2x\"},{\"idiom\" : \"universal\",\"filename\" : \"${var}.pdf\",\"scale\" : \"3x\"}],\"info\" : {\"version\" : 1,\"author\" : \"xcode\"},\"properties\" : {\"template-rendering-intent\" : \"template\",\"preserves-vector-representation\" : true}}" > "${dest}/Contents.json";
-    printf "  static let ${var} = \"${var}.pdf\"\n" >> $icons;
+    printf "  public static let ${var} = \"${var}.pdf\"\n" >> $icons;
   fi
 done
 printf "}\n" >> $icons;

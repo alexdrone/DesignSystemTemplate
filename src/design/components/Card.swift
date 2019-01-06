@@ -1,41 +1,59 @@
 import UIKit
 
-class Card: UIView {
-  struct Constants {
-    static let defaultCornerRadius: CGFloat = Theme.Geometry.defaultCornerRadius
-    static let defaultNormalDepth = DepthPreset.depth1
+open class Card: UIView {
+  public struct Constants {
+    /// - note: See `Theme.Geometry.defaultCornerRadius`.
+    public static var defaultCornerRadius: CGFloat = Theme.Geometry.defaultCornerRadius
+    /// Resting depth for the card.
+    public static var defaultNormalDepth = DepthPreset.depth1
+    /// Override this constant to provide a different placeholder.
+    public static var defaultPlaceHolderImage = Theme.palette.dark.image()
   }
 
   // Not defined as an enum so that new styles can be introduced by subclasses.
-  struct Style {
-    static let compact: String = "compact"
-    static let mid: String = "mid"
-    static let postage: String = "postage"
-    static let postageDoubleWidth: String = "postageDoubleWidth"
-    static let headline: String = "headline"
+  public struct Style {
+    public static let compact: String = "compact"
+    public static let mid: String = "mid"
+    public static let postage: String = "postage"
+    public static let postageDoubleWidth: String = "postageDoubleWidth"
+    public static let headline: String = "headline"
   }
   /// The current style.
-  var style: String = Style.compact 
+  /// - note: Styles can be extended and their behaviours redefined by overriding the
+  /// `configureCard(for:)` method in your `Card` subclass.
+  public var style: String = Style.compact
   /// The card image (if available).
-  var image = Theme.palette.dark.image()
-  /// The card title.
-  var title = ""
-  /// The card subtitle;
-  var subtitle = ""
-
-  var selected: Bool = false {
+  /// - note: See `Constants.defaultPlaceHolderImage`.
+  public var image = Constants.defaultPlaceHolderImage
+  /// The card title, will be set as `titleLabel` text.
+  public var title = ""
+  /// The card subtitle, will be set as `subtitleLabel` text.
+  public var subtitle = ""
+  /// Applies the selected state to this card.
+  public var selected: Bool = false {
     didSet { setNeedsLayout() }
   }
 
   // Subviews.
-  var contentView = UIView()
-  var imageView = UIImageView()
-  var titleLabel = UILabel()
-  var subtitleLabel = UILabel()
-  var backgroundProtection = UIView()
+  // - note: These are public so that subclasses can define new custom layout for newly
+  // defiend styles.
+  public var contentView = UIView()
+  public var imageView = UIImageView()
+  public var titleLabel = UILabel()
+  public var subtitleLabel = UILabel()
+  public var backgroundProtection = UIView()
 
-  required override init(frame: CGRect) {
+  public required override init(frame: CGRect) {
     super.init(frame: frame)
+    commonInit()
+  }
+
+  public required init?(coder aDecoder: NSCoder) {
+    super.init(coder: aDecoder)
+    commonInit()
+  }
+
+  private func commonInit() {
     addSubview(contentView)
     contentView.addSubview(imageView)
     contentView.addSubview(backgroundProtection)
@@ -44,13 +62,9 @@ class Card: UIView {
     setNeedsUpdate()
   }
 
-  required init?(coder aDecoder: NSCoder) {
-    fatalError("init(coder:) not supported.")
-  }
-
   /// Override this method to implement new styles or override the existing ones.
   /// - note: Requires super invokation.
-  func configureCard(for style: String) {
+  open func configureCard(for style: String) {
     backgroundProtection.backgroundColor = Theme.palette.text.withAlphaComponent(0.30)
     backgroundColor = Theme.palette.light
     depthPreset = Constants.defaultNormalDepth
@@ -73,31 +87,28 @@ class Card: UIView {
       subtitleLabel.attributedText = Theme.typography.style(.body2).asAttributedString(subtitle)
     }
     if style == Style.headline {
-      titleLabel.attributedText = Theme.typography
-        .style(.overline)
-        .withColor(Theme.palette.light)
+      titleLabel.attributedText = Theme.typography.style(.overline).withColor(Theme.palette.light)
         .asAttributedString(title)
-      subtitleLabel.attributedText = Theme.typography
-        .style(.h6)
-        .withColor(Theme.palette.light)
+      subtitleLabel.attributedText = Theme.typography.style(.h6).withColor(Theme.palette.light)
         .asAttributedString(subtitle)
-        titleLabel.backgroundColor = .clear
-        subtitleLabel.backgroundColor = .clear
+      titleLabel.backgroundColor = .clear
+      subtitleLabel.backgroundColor = .clear
     }
   }
 
   /// Invoke this method when the view has to be recofigured.
-  func setNeedsUpdate() {
+  public func setNeedsUpdate() {
     configureCard(for: style)
     setNeedsLayout()
   }
 
-  override func layoutSubviews() {
+  /// Lays out subviews.
+  open override func layoutSubviews() {
     super.layoutSubviews()
     contentView.frame = bounds
-    let geometry = Style.geometry(for: style)
-    titleLabel.numberOfLines = geometry.titleNumberOfLines
-    subtitleLabel.numberOfLines = geometry.subtitleNumberOfLines
+    let geometry = Constants.geometry(for: style)
+    titleLabel.numberOfLines = 1
+    subtitleLabel.numberOfLines = geometry.linesNo
     titleLabel.sizeToFit()
     subtitleLabel.sizeToFit()
     let margin = geometry.margin
@@ -144,63 +155,39 @@ class Card: UIView {
   }
 
   /// Override this method to implement new styles or override the existing ones.
-  override func sizeThatFits(_ size: CGSize) -> CGSize {
+  open override func sizeThatFits(_ size: CGSize) -> CGSize {
     var result = CGSize(
       width: style == Style.postage ? size.width / 2 : size.width,
       height: 0)
-    result.height = Style.geometry(for: style).height
+    result.height = Constants.geometry(for: style).height
     return result
   }
 }
 
-extension Card.Style {
+// MARK: - Constants (Geometry)
+
+extension Card.Constants {
   // Associated intrinsic constants.
   struct Geometry {
     let height: CGFloat
     let margin: CGFloat
     let imageSize: CGFloat
-    let titleNumberOfLines: Int
-    let subtitleNumberOfLines: Int
+    let linesNo: Int
   }
   /// Returns the layout constants for a given style.
   static func geometry(for style: String) -> Geometry {
-    if style == compact {
-      return Geometry(
-        height: 72,
-        margin: 16,
-        imageSize: 98,
-        titleNumberOfLines: 1,
-        subtitleNumberOfLines: 1)
+    if style == Card.Style.compact {
+      return Geometry(height: 72, margin: 16, imageSize: 98, linesNo: 1)
     }
-    if style == mid {
-      return Geometry(
-        height: 120,
-        margin: 16,
-        imageSize: 120,
-        titleNumberOfLines: 1,
-        subtitleNumberOfLines: 3)
+    if style == Card.Style.mid {
+      return Geometry(height: 120, margin: 16, imageSize: 120, linesNo: 3)
     }
-    if style == postage || style == postageDoubleWidth {
-      return Geometry(
-        height: 240,
-        margin: 8,
-        imageSize: 140,
-        titleNumberOfLines: 1,
-        subtitleNumberOfLines: 3)
+    if style == Card.Style.postage || style == Card.Style.postageDoubleWidth {
+      return Geometry(height: 240, margin: 8, imageSize: 140, linesNo: 3)
     }
-    if style == headline {
-      return Geometry(
-        height: 344,
-        margin: 16,
-        imageSize: 0,
-        titleNumberOfLines: 1,
-        subtitleNumberOfLines: 4)
+    if style == Card.Style.headline {
+      return Geometry(height: 344, margin: 16, imageSize: 0, linesNo: 4)
     }
-    return Geometry(
-      height: 0,
-      margin: 0,
-      imageSize: 0,
-      titleNumberOfLines: 0,
-      subtitleNumberOfLines: 0)
+    return Geometry(height: 0, margin: 0, imageSize: 0, linesNo: 0)
   }
 }

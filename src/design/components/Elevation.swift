@@ -1,33 +1,33 @@
 import UIKit
 
-typealias Offset = UIOffset
+public typealias Offset = UIOffset
 
-// MARK: Depth
+// MARK: - Depth
 
-@objc enum DepthPreset: Int {
+public enum DepthPreset: Int {
   case none
   case depth1
   case depth2
   case depth3
   case depth4
   case depth5
-}
 
-/// Converts the DepthPreset enum to a Depth value.
-func depthPresetToValue(preset: DepthPreset) -> Depth {
-  switch preset {
-  case .none:
-    return .zero
-  case .depth1:
-    return Depth(offset: Offset(horizontal: 0, vertical: 0.5), opacity: 0.3, radius: 0.5)
-  case .depth2:
-    return Depth(offset: Offset(horizontal: 0, vertical: 1), opacity: 0.3, radius: 1)
-  case .depth3:
-    return Depth(offset: Offset(horizontal: 0, vertical: 2), opacity: 0.3, radius: 2)
-  case .depth4:
-    return Depth(offset: Offset(horizontal: 0, vertical: 4), opacity: 0.3, radius: 4)
-  case .depth5:
-    return Depth(offset: Offset(horizontal: 0, vertical: 8), opacity: 0.3, radius: 8)
+  /// Converts the DepthPreset enum to a Depth value.
+  public var value: Depth {
+    switch self {
+    case .none:
+      return .zero
+    case .depth1:
+      return Depth(offset: Offset(horizontal: 0, vertical: 0.5), opacity: 0.3, radius: 0.5)
+    case .depth2:
+      return Depth(offset: Offset(horizontal: 0, vertical: 1), opacity: 0.3, radius: 1)
+    case .depth3:
+      return Depth(offset: Offset(horizontal: 0, vertical: 2), opacity: 0.3, radius: 2)
+    case .depth4:
+      return Depth(offset: Offset(horizontal: 0, vertical: 4), opacity: 0.3, radius: 4)
+    case .depth5:
+      return Depth(offset: Offset(horizontal: 0, vertical: 8), opacity: 0.3, radius: 8)
+    }
   }
 }
 
@@ -35,42 +35,46 @@ extension UIView {
   /// A property that manages the overall shape for the object. If either the
   /// width or height property is set, the other will be automatically adjusted
   /// to maintain the shape of the object.
-  @objc var shapePreset: ShapePreset {
+  public var shapePreset: ShapePreset {
     get { return layer.shapePreset }
     set(value) { layer.shapePreset = value }
   }
   /// A preset value for Depth.
-  @objc var depthPreset: DepthPreset {
+  public var depthPreset: DepthPreset {
     get { return layer.depthPreset }
     set(value) { layer.depthPreset = value }
   }
   /// Depth reference.
-  var depth: Depth {
+  public var depth: Depth {
     get { return layer.depth }
     set(value) { layer.depth = value }
   }
   /// Enables automatic shadowPath sizing.
-  @objc dynamic var isShadowPathAutoSizing: Bool {
+   @objc public dynamic var isShadowPathAutoSizing: Bool {
     get { return layer.isShadowPathAutoSizing }
     set(value) { layer.isShadowPathAutoSizing = value }
   }
 }
 
-// MARK: Internals
+// MARK: - Internals
 
-struct Depth {
-  var offset: Offset
-  var opacity: Float
-  var radius: CGFloat
+public struct Depth {
+  /// The shadow offset.
+  public var offset: Offset
+  /// The shadwo opacity.
+  public var opacity: Float
+  /// The shadow radius.
+  public var radius: CGFloat
 
   /// A tuple of raw values.
-  var rawValue: (CGSize, Float, CGFloat) {
+  private var rawValue: (CGSize, Float, CGFloat) {
     return (offset.asSize, opacity, radius)
   }
 
-  var preset = DepthPreset.none {
+  /// Set the shadow from a preset.
+  public var preset = DepthPreset.none {
     didSet {
-      let depth = depthPresetToValue(preset: preset)
+      let depth = preset.value
       offset = depth.offset
       opacity = depth.opacity
       radius = depth.radius
@@ -92,32 +96,19 @@ struct Depth {
 
   /// Static constructor for Depth with values of 0.
   /// - Returns: A Depth struct with values of 0.
-  static var zero: Depth {
+  public static var zero: Depth {
     return Depth()
-  }
-}
-
-extension CGSize {
-  /// Returns an Offset version of the CGSize.
-  var asOffset: Offset {
-    return Offset(size: self)
-  }
-}
-
-extension Offset {
-  init(size: CGSize) {
-    self.init(horizontal: size.width, vertical: size.height)
   }
 }
 
 extension Offset {
   /// Returns a CGSize version of the Offset.
-  var asSize: CGSize {
+  fileprivate var asSize: CGSize {
     return CGSize(width: horizontal, height: vertical)
   }
 }
 
-@objc public enum ShapePreset: Int {
+public enum ShapePreset: Int {
   case none
   case square
   case circle
@@ -138,15 +129,13 @@ class ContainerLayer {
   /// Grid reference.
   var depth = Depth.zero {
     didSet {
-      guard let v = layer else {
-        return
-      }
+      guard let viewLayer = layer else { return }
       CATransaction.begin()
       CATransaction.setAnimationDuration(0.4)
-      v.shadowOffset = depth.offset.asSize
-      v.shadowOpacity = depth.opacity
-      v.shadowRadius = depth.radius
-      v.layoutShadowPath()
+      viewLayer.shadowOffset = depth.offset.asSize
+      viewLayer.shadowOpacity = depth.opacity
+      viewLayer.shadowRadius = depth.radius
+      viewLayer.layoutShadowPath()
       CATransaction.commit()
     }
   }
@@ -231,11 +220,11 @@ extension CALayer {
 
 extension UIView {
   /// Manages the layout for the shape of the view instance.
-  internal func layoutShape() {
+  func layoutShape() {
     layer.layoutShape()
   }
   /// Sets the shadow path.
-  internal func layoutShadowPath() {
+  func layoutShadowPath() {
     layer.layoutShadowPath()
   }
 }

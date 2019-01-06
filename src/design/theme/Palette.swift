@@ -1,8 +1,10 @@
 import UIKit
 
-struct Palette {
+// MARK: - Public inteface
+
+public struct Palette {
   /// Swatch styles.
-  enum Style: String {
+  public enum Style: String {
     case tintBase
     case tint900
     case tint800
@@ -23,7 +25,7 @@ struct Palette {
   }
 }
 
-protocol PaletteProtocol {
+public protocol PaletteProtocol {
   var surface: UIColor { get }
   var light: UIColor { get }
   var dark: UIColor { get }
@@ -38,16 +40,18 @@ protocol PaletteProtocol {
   func secondary(_ style: Palette.Style) -> UIColor
 }
 
-class BasePalette: PaletteProtocol {
-  let surface = UIColor("#f8f9fa")
-  let light = UIColor("#ffffff")
-  let dark = UIColor("#f1f3f4")
-  let text = UIColor("#130c0c")
-  let textHigh = UIColor("#000000")
-  let textDisabled = UIColor("#000000").withAlphaComponent(0.38)
-  let hairline = UIColor("#dadce0")
+// MARK: - Default palette
 
-  func primary(_ style: Palette.Style) -> UIColor {
+public class BasePalette: PaletteProtocol {
+  public let surface = UIColor("#f8f9fa")
+  public let light = UIColor("#ffffff")
+  public let dark = UIColor("#f1f3f4")
+  public let text = UIColor("#130c0c")
+  public let textHigh = UIColor("#000000")
+  public let textDisabled = UIColor("#000000").withAlphaComponent(0.38)
+  public let hairline = UIColor("#dadce0")
+
+  public func primary(_ style: Palette.Style) -> UIColor {
     switch style {
     case .tintBase:
       return UIColor("#5f6368")
@@ -86,10 +90,12 @@ class BasePalette: PaletteProtocol {
     }
   }
 
-  func secondary(_ style: Palette.Style) -> UIColor {
+  public func secondary(_ style: Palette.Style) -> UIColor {
     return Palette.DefaultSwatches.red(style)
   }
 }
+
+// MARK: - Internals
 
 extension UIColor {
 
@@ -117,7 +123,7 @@ extension UIColor {
   }
 
   /// Returns an image with solid color.
-  func image(_ size: CGSize = CGSize(width: 1, height: 1)) -> UIImage {
+  public func image(_ size: CGSize = CGSize(width: 1, height: 1)) -> UIImage {
     return UIGraphicsImageRenderer(size: size).image { rendererContext in
       self.setFill()
       rendererContext.fill(CGRect(origin: .zero, size: size))

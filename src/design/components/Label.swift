@@ -1,12 +1,12 @@
 import UIKit
 
-class Label: UILabel {
+public class Label: UILabel {
   /// The typographic style for this label.
-  var style: Typography.Style? = nil {
+  public var style: Typography.Style? = nil {
     didSet { updateView() }
   }
 
-  convenience init(
+  public convenience init(
     style: Typography.Style,
     text: String? = nil,
     color: UIColor = Theme.palette.text,
@@ -20,11 +20,11 @@ class Label: UILabel {
     updateView()
   }
 
-  override var text: String? {
+  public override var text: String? {
     didSet { updateView() }
   }
 
-  override var textColor: UIColor! {
+  public override var textColor: UIColor! {
     didSet { updateView() }
   }
 

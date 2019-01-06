@@ -1,19 +1,19 @@
 import UIKit
 
-class TextField: UITextField {
+public class TextField: UITextField {
   // Internal constants.
-  private struct Constants {
-    static let defaultHeight: CGFloat = 48
-    static let defaultLeftPadding: CGFloat = 12
-    static let defaultCornerRadius: CGFloat = Theme.Geometry.defaultCornerRadius
-    static let defaultIconSize: CGFloat = 24
-    static let defaultNormalDepth = DepthPreset.depth1
-    static let defaultActiveDepth = DepthPreset.depth3
+  public struct Constants {
+    public static var defaultHeight: CGFloat = 48
+    public static var defaultLeftPadding: CGFloat = 12
+    public static var defaultCornerRadius: CGFloat = Theme.Geometry.defaultCornerRadius
+    public static var defaultIconSize: CGFloat = 24
+    public static var defaultNormalDepth = DepthPreset.depth1
+    public static var defaultActiveDepth = DepthPreset.depth3
   }
   /// The textfield change elevation on touch.
   private var isRaised: Bool = false
 
-  convenience init(
+  public convenience init(
     placeholder: String,
     icon: String? = nil,
     raised: Bool = true
@@ -39,23 +39,23 @@ class TextField: UITextField {
   }
 
   // Provides left padding for images
-  override func leftViewRect(forBounds bounds: CGRect) -> CGRect {
+  open override func leftViewRect(forBounds bounds: CGRect) -> CGRect {
     var textRect = super.leftViewRect(forBounds: bounds)
     textRect.origin.x += leftPadding
     return textRect
   }
   /// The desired left icon.
-  var leftImage: UIImage? {
+  public var leftImage: UIImage? {
     didSet { updateView() }
   }
   /// Padding for the left icon.
-  var leftPadding: CGFloat = Constants.defaultLeftPadding
+  public var leftPadding: CGFloat = Constants.defaultLeftPadding
   /// Transform the text into attributed text whenever is set.
-  override var text: String? {
+  open override var text: String? {
     didSet { updateView() }
   }
   /// Override is focused to get elevation change.
-  override func becomeFirstResponder() -> Bool {
+  open override func becomeFirstResponder() -> Bool {
     let result = super.becomeFirstResponder()
     guard isRaised else {
       return result
@@ -64,7 +64,7 @@ class TextField: UITextField {
     return result
   }
 
-  override func resignFirstResponder() -> Bool {
+  open override func resignFirstResponder() -> Bool {
     let result = super.resignFirstResponder()
     guard isRaised else {
       return result
@@ -106,7 +106,7 @@ class TextField: UITextField {
   }
 
   /// Asks the view to calculate and return the size that best fits the specified size.
-  override func sizeThatFits(_ size: CGSize) -> CGSize {
+  open override func sizeThatFits(_ size: CGSize) -> CGSize {
     return CGSize(width: size.width, height: Constants.defaultHeight)
   }
 }

@@ -3,7 +3,6 @@ import UIKit
 // See *Icons.generated.swift*.
 
 extension UIImageView {
-
   /// Configure this image view to work with the icon passed as argument.
   /// - parameter icon: The icon name, see *Icons.generated.swift*.
   /// - parameter size: The optional icon size (with the assumption that the icon is squared).
@@ -18,26 +17,9 @@ extension UIImageView {
   }
 }
 
-extension UIButton {
-
-  /// Configure this button to work with the icon passed as argument.
-  /// - parameter icon: The icon name, see *Icons.generated.swift*.
-  /// - parameter size: The optional icon size (with the assumption that the icon is squared).
-  /// - parameter color: Tint the image with the desired color.
-  @discardableResult
-  func withIcon(_ icon: String, size: CGFloat? = nil, color: UIColor? = nil) -> UIButton {
-    guard var icon = UIImage(named: icon)?.withRenderingMode(.alwaysTemplate) else { return self }
-    if let size = size { icon = icon.byResizingToTargetHeight(size) }
-    self.setImage(icon, for: .normal)
-    if let color = color { tintColor = color }
-    return self
-  }
-}
-
-extension UIImage {
-
+public extension UIImage {
   /// Tint the image with the desired color.
-  func withTintColor(_ color: UIColor) -> UIImage {
+  public func withTintColor(_ color: UIColor) -> UIImage {
     UIGraphicsBeginImageContextWithOptions(self.size, false, self.scale)
     let context: CGContext = UIGraphicsGetCurrentContext()!
     context.translateBy(x: 0, y: self.size.height)
@@ -53,7 +35,7 @@ extension UIImage {
   }
 
   /// Resize an image.
-  func byResizingToTargetHeight(_ targetHeight: CGFloat) -> UIImage {
+  public func byResizingToTargetHeight(_ targetHeight: CGFloat) -> UIImage {
     let size = self.size
     let heightRatio = targetHeight / size.height
     let newSize = CGSize(width: size.width * heightRatio, height: size.height * heightRatio)
