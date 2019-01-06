@@ -118,6 +118,7 @@ class CatalogViewController: UIViewController {
       "tempor, incididunt ut labore et dolore magna aliqua."
     card.setNeedsUpdate()
     card.onTap { _ in
+      Haptic.selection.generate()
       UIView.animate(withDuration: 1) {
         card.isSelected = !card.isSelected
         card.layoutIfNeeded()

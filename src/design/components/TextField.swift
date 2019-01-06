@@ -61,6 +61,7 @@ public class TextField: UITextField {
       return result
     }
     depthPreset = result ? Constants.defaultActiveDepth : Constants.defaultNormalDepth
+    Haptic.selection.generate()
     return result
   }
 

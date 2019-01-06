@@ -72,10 +72,10 @@ open class Card: UIView {
     backgroundProtection.backgroundColor = Theme.palette.text.withAlphaComponent(0.3)
     backgroundColor = Theme.palette.light
     depthPreset = !isSelected ? Constants.defaultNormalDepth : Constants.defaultSelectedDepth
-    cornerRadius = Constants.defaultCornerRadius
     clipsToBounds = false
+    layer.cornerRadius = Constants.defaultCornerRadius
+    contentView.layer.cornerRadius = layer.cornerRadius
     contentView.backgroundColor = backgroundColor
-    contentView.cornerRadius = cornerRadius
     contentView.clipsToBounds = true
     imageView.contentMode = .scaleAspectFill
     imageView.image = image

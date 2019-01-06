@@ -111,7 +111,7 @@ public class Button: UIButton {
 
   // MARK: Overrides
 
-  open override  var isHighlighted: Bool {
+  open override var isHighlighted: Bool {
     didSet { updateBackground() }
   }
 
