@@ -130,13 +130,17 @@ class ContainerLayer {
   var depth = Depth.zero {
     didSet {
       guard let viewLayer = layer else { return }
-      CATransaction.begin()
-      CATransaction.setAnimationDuration(0.4)
+      viewLayer.animate()
+        .shadowRadius(depth.radius)
+        .shadowOffset(depth.offset.asSize)
+        .shadowRadius(depth.radius)
+        .duration(0.166)
+        .start()
+
       viewLayer.shadowOffset = depth.offset.asSize
       viewLayer.shadowOpacity = depth.opacity
       viewLayer.shadowRadius = depth.radius
       viewLayer.layoutShadowPath()
-      CATransaction.commit()
     }
   }
   /// Enables automatic shadowPath sizing.
@@ -230,3 +234,68 @@ extension UIView {
 }
 
 private var _containerLayerKey: UInt8 = 0
+
+extension CALayer {
+  /// Animation wrapper on CALayer.
+  public func animate() -> CALayerAnimate {
+    return CALayerAnimate(layer: self)
+  }
+}
+
+public class CALayerAnimate {
+  private var animations: [String: CAAnimation]
+  private var duration: CFTimeInterval
+  private let layer: CALayer
+
+  init(layer: CALayer) {
+    self.animations = [String: CAAnimation]()
+    self.duration = 0.25 // second
+    self.layer = layer
+  }
+
+  public func shadowOpacity(_ shadowOpacity: Float) -> CALayerAnimate {
+    let key = "shadowOpacity"
+    let animation = CABasicAnimation(keyPath: key)
+    animation.fromValue = layer.shadowOpacity
+    animation.toValue = shadowOpacity
+    animation.isRemovedOnCompletion = false
+    animation.fillMode = CAMediaTimingFillMode.forwards
+    animations[key] = animation
+    return self
+  }
+
+  public func shadowRadius(_ shadowRadius: CGFloat) -> CALayerAnimate {
+    let key = "shadowRadius"
+    let animation = CABasicAnimation(keyPath: key)
+    animation.fromValue = layer.shadowRadius
+    animation.toValue = shadowRadius
+    animation.isRemovedOnCompletion = false
+    animation.fillMode = CAMediaTimingFillMode.forwards
+    animations[key] = animation
+    return self
+  }
+
+  public func shadowOffset(_ size: CGSize) -> CALayerAnimate {
+    let key = "shadowOffset"
+    let animation = CABasicAnimation(keyPath: key)
+    animation.fromValue = NSValue(cgSize: layer.shadowOffset)
+    animation.toValue = NSValue(cgSize: size)
+    animation.isRemovedOnCompletion = false
+    animation.fillMode = CAMediaTimingFillMode.forwards
+    animations[key] = animation
+    return self
+  }
+
+  public func duration(_ duration: CFTimeInterval) -> CALayerAnimate {
+    self.duration = duration
+    return self
+  }
+
+  public func start() {
+    for (key, animation) in animations {
+      animation.duration = duration
+      layer.removeAnimation(forKey: key)
+      layer.add(animation, forKey: key)
+    }
+  }
+}

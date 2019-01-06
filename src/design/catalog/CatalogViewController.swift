@@ -117,6 +117,12 @@ class CatalogViewController: UIViewController {
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod " +
       "tempor, incididunt ut labore et dolore magna aliqua."
     card.setNeedsUpdate()
+    card.onTap { _ in
+      UIView.animate(withDuration: 1) {
+        card.isSelected = !card.isSelected
+        card.layoutIfNeeded()
+      }
+    }
     return card
   }
 

@@ -33,5 +33,4 @@ public class Label: UILabel {
       attributedText = Theme.typography.style(style).withColor(textColor).asAttributedString(text)
     }
   }
-  
 }

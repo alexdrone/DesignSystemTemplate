@@ -6,6 +6,7 @@ open class Card: UIView {
     public static var defaultCornerRadius: CGFloat = Theme.Geometry.defaultCornerRadius
     /// Resting depth for the card.
     public static var defaultNormalDepth = DepthPreset.depth1
+    public static var defaultSelectedDepth = DepthPreset.depth3
     /// Override this constant to provide a different placeholder.
     public static var defaultPlaceHolderImage = Theme.palette.dark.image()
   }
@@ -17,6 +18,7 @@ open class Card: UIView {
     public static let postage: String = "postage"
     public static let postageDoubleWidth: String = "postageDoubleWidth"
     public static let headline: String = "headline"
+    public static let custom: String = "custom"
   }
   /// The current style.
   /// - note: Styles can be extended and their behaviours redefined by overriding the
@@ -30,8 +32,8 @@ open class Card: UIView {
   /// The card subtitle, will be set as `subtitleLabel` text.
   public var subtitle = ""
   /// Applies the selected state to this card.
-  public var selected: Bool = false {
-    didSet { setNeedsLayout() }
+  public var isSelected: Bool = false {
+    didSet { setNeedsUpdate() }
   }
 
   // Subviews.
@@ -42,6 +44,7 @@ open class Card: UIView {
   public var titleLabel = UILabel()
   public var subtitleLabel = UILabel()
   public var backgroundProtection = UIView()
+  public var selectionView = UIView()
 
   public required override init(frame: CGRect) {
     super.init(frame: frame)
@@ -59,15 +62,16 @@ open class Card: UIView {
     contentView.addSubview(backgroundProtection)
     contentView.addSubview(titleLabel)
     contentView.addSubview(subtitleLabel)
+    contentView.addSubview(selectionView)
     setNeedsUpdate()
   }
 
   /// Override this method to implement new styles or override the existing ones.
   /// - note: Requires super invokation.
   open func configureCard(for style: String) {
-    backgroundProtection.backgroundColor = Theme.palette.text.withAlphaComponent(0.30)
+    backgroundProtection.backgroundColor = Theme.palette.text.withAlphaComponent(0.3)
     backgroundColor = Theme.palette.light
-    depthPreset = Constants.defaultNormalDepth
+    depthPreset = !isSelected ? Constants.defaultNormalDepth : Constants.defaultSelectedDepth
     cornerRadius = Constants.defaultCornerRadius
     clipsToBounds = false
     contentView.backgroundColor = backgroundColor
@@ -78,6 +82,13 @@ open class Card: UIView {
     imageView.clipsToBounds = true
     titleLabel.backgroundColor = backgroundColor
     subtitleLabel.backgroundColor = backgroundColor
+    titleLabel.isHidden = style == Style.custom
+    subtitleLabel.isHidden = style == Style.custom
+    imageView.isHidden = style == Style.custom
+    backgroundProtection.isHidden = style == Style.custom
+    selectionView.isHidden = !isSelected
+    selectionView.backgroundColor = Theme.palette.dark
+    selectionView.alpha = 0.5
     if style == Style.compact || style == Style.postage || style == Style.postageDoubleWidth {
       titleLabel.attributedText = Theme.typography.style(.subtitle2).asAttributedString(title)
       subtitleLabel.attributedText = Theme.typography.style(.caption).asAttributedString(subtitle)
@@ -106,6 +117,7 @@ open class Card: UIView {
   open override func layoutSubviews() {
     super.layoutSubviews()
     contentView.frame = bounds
+    selectionView.frame = bounds
     let geometry = Constants.geometry(for: style)
     titleLabel.numberOfLines = 1
     subtitleLabel.numberOfLines = geometry.linesNo
@@ -177,7 +189,7 @@ extension Card.Constants {
   /// Returns the layout constants for a given style.
   static func geometry(for style: String) -> Geometry {
     if style == Card.Style.compact {
-      return Geometry(height: 72, margin: 16, imageSize: 98, linesNo: 1)
+      return Geometry(height: 72, margin: 16, imageSize: 98, linesNo: 2)
     }
     if style == Card.Style.mid {
       return Geometry(height: 120, margin: 16, imageSize: 120, linesNo: 3)
