@@ -1,11 +1,7 @@
 import UIKit
 // Test imports.
 import CoreRender
-import Emit
 // Test imports (Vendor).
-import Nuke
-import Motion
-import PromiseKit
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
