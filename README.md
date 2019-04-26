@@ -1,2 +1,2 @@
-# ScaffoldApp
-Template app with dependency management, nav router and resource management.
+# DesignSystemTemplate
+Customizable design system in Swift.
