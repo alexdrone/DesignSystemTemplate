@@ -3,12 +3,11 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 51;
+	objectVersion = 50;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		0F3900FF5D8004C336368D72D25DB71E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2D3535A42DC239782B74AAE00D54D8E9 /* LaunchScreen.storyboard */; };
-		1D69DF9A837CDC04D468DB711100E495 /* Nuke.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = F263F7E9CE067E9C49AD709C262F7A90 /* Nuke.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		21F412A4E9BBB9E903660C83BE389E1D /* Palette.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC250E72FCFA7E6B33DBF603C95ABA03 /* Palette.swift */; };
 		235D33C559E50E068E7CFDF86D410FA3 /* Typography.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26D962601F728D079B9BB4538C8DD705 /* Typography.swift */; };
 		27E2A48FE0DF44EB60A6696EA3456C1A /* Icons.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = C296E9C09D8ECD237D5AA7956C759519 /* Icons.generated.swift */; };
@@ -17,8 +16,6 @@
 		49BC9EE86409006016580B46A31DBD93 /* Label.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68C55814567850811274776496B33D60 /* Label.swift */; };
 		4B810BC850E9CC4C5789FAA51272DFE2 /* CoreRender.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 9208E4B0DDB800D89120A66D9E9DDEA4 /* CoreRender.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		5340AAEBD68398ED703E32727EB91A25 /* Gestures.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11C96B1E56F81E8C6AF3DC8574AFB739 /* Gestures.swift */; };
-		5E5077DDFAF6DEC6A635AEE483E0FE6D /* PromiseKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 177D0BB24C8FBFE11400F9786F3B418F /* PromiseKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		70BA5B32C61CFC9FB890C6C35C5B15BE /* PromiseKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 177D0BB24C8FBFE11400F9786F3B418F /* PromiseKit.framework */; };
 		71D2F97CE5E4F049243AE99244912CAF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B28643C3BFD6669A4F22E6BC60C9061 /* AppDelegate.swift */; };
 		858558455F0F74576BB4C249078AEAC4 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02FC3B09D3B7B5DD787349387FFAA656 /* Theme.swift */; };
 		988E7C6955EEC51B80D692649477F92E /* Haptic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52EA5CE669EA9E8F37007A2CB9314300 /* Haptic.swift */; };
@@ -27,13 +24,10 @@
 		A55664272673F9EA2EA25683682A64D4 /* Icons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87078A679FBC8077865974653213FD91 /* Icons.swift */; };
 		A7C1C79D22DC02A8821327527C65C402 /* Rubik-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 285EAE0FFE3B0287E59475250932EAAE /* Rubik-Light.ttf */; };
 		A8D48A4A3E1562F59FAE084939F0BEB3 /* Rubik-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9E06B5FA8DB155C446CE4F16E2C570DF /* Rubik-Medium.ttf */; };
-		AED05CAC58AAD9E6BA3A0E0E7B27CF5C /* Motion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EF68AE51672F669DCFEAEA4EC2750A27 /* Motion.framework */; };
 		B09CC69129EB2DBA8B226597B705DDEA /* TextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45BBC9116EB8DC67E56448E3DF3EA1E2 /* TextField.swift */; };
-		B440E575228FDB6423D90228C32E8B90 /* Nuke.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F263F7E9CE067E9C49AD709C262F7A90 /* Nuke.framework */; };
 		B8143A4F1B87A9CF467E61AB8C2C2482 /* Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7C5C7A74CD15638C491B0AF4F36D97E /* Test.swift */; };
 		B99EBC099274E9D2AD197AE882EBE788 /* CatalogViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EF56074C9DD61BD7ADF523F9659AC97 /* CatalogViewController.swift */; };
 		CE04142E9D86AC4CD6C780BCE94E5068 /* generate_project.sh in Resources */ = {isa = PBXBuildFile; fileRef = 9F7356F1A9CD1A814FFD92B68803E532 /* generate_project.sh */; };
-		EC181C802CC5F520DB62404060AB6EE4 /* Motion.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = EF68AE51672F669DCFEAEA4EC2750A27 /* Motion.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		EC72A90CAA482ADFC02369B41E073849 /* Elevation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E22D6932F15AFD373CBA7D58D100E49 /* Elevation.swift */; };
 		EF8D12C99D006C47868538684739817B /* Rubik-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 654FEFD3F48A4F51AC05011D17ABB1DA /* Rubik-Regular.ttf */; };
 		F587D675287636102222061BBB687788 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C886DC43C416289F87F2CDEA7A91C893 /* Assets.xcassets */; };
@@ -50,19 +44,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		5ECEE219923D64C288502705694840FC /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				EC181C802CC5F520DB62404060AB6EE4 /* Motion.framework in Embed Frameworks */,
-				1D69DF9A837CDC04D468DB711100E495 /* Nuke.framework in Embed Frameworks */,
-				5E5077DDFAF6DEC6A635AEE483E0FE6D /* PromiseKit.framework in Embed Frameworks */,
-			);
-			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		8EFDE6013C818852098745E7ABA36959 /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -82,29 +63,26 @@
 		11C7A93A4C80FF946E79472C7885C81E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		11C96B1E56F81E8C6AF3DC8574AFB739 /* Gestures.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Gestures.swift; sourceTree = "<group>"; };
 		146037452EFD63B925722C95FFF11B1E /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
-		177D0BB24C8FBFE11400F9786F3B418F /* PromiseKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = PromiseKit.framework; sourceTree = "<group>"; };
 		26D962601F728D079B9BB4538C8DD705 /* Typography.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Typography.swift; sourceTree = "<group>"; };
-		285EAE0FFE3B0287E59475250932EAAE /* Rubik-Light.ttf */ = {isa = PBXFileReference; path = "Rubik-Light.ttf"; sourceTree = "<group>"; };
+		285EAE0FFE3B0287E59475250932EAAE /* Rubik-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Rubik-Light.ttf"; sourceTree = "<group>"; };
 		2E22D6932F15AFD373CBA7D58D100E49 /* Elevation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Elevation.swift; sourceTree = "<group>"; };
 		3876508B8A453EA14948B5E1624E71C6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		45BBC9116EB8DC67E56448E3DF3EA1E2 /* TextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextField.swift; sourceTree = "<group>"; };
-		49D88A349FD70A9153DD2C0380559E7C /* App.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = App.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		49D88A349FD70A9153DD2C0380559E7C /* App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = App.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4C08F3D8138A12D5595B1DEF2872A095 /* YourAppSrc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YourAppSrc.swift; sourceTree = "<group>"; };
 		52EA5CE669EA9E8F37007A2CB9314300 /* Haptic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Haptic.swift; sourceTree = "<group>"; };
-		654FEFD3F48A4F51AC05011D17ABB1DA /* Rubik-Regular.ttf */ = {isa = PBXFileReference; path = "Rubik-Regular.ttf"; sourceTree = "<group>"; };
+		654FEFD3F48A4F51AC05011D17ABB1DA /* Rubik-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Rubik-Regular.ttf"; sourceTree = "<group>"; };
 		68C55814567850811274776496B33D60 /* Label.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Label.swift; sourceTree = "<group>"; };
 		6B28643C3BFD6669A4F22E6BC60C9061 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		87078A679FBC8077865974653213FD91 /* Icons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Icons.swift; sourceTree = "<group>"; };
 		9208E4B0DDB800D89120A66D9E9DDEA4 /* CoreRender.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreRender.framework; path = frameworks/CoreRender.framework; sourceTree = "<group>"; };
-		9E06B5FA8DB155C446CE4F16E2C570DF /* Rubik-Medium.ttf */ = {isa = PBXFileReference; path = "Rubik-Medium.ttf"; sourceTree = "<group>"; };
+		9E06B5FA8DB155C446CE4F16E2C570DF /* Rubik-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Rubik-Medium.ttf"; sourceTree = "<group>"; };
 		9F7356F1A9CD1A814FFD92B68803E532 /* generate_project.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = generate_project.sh; sourceTree = "<group>"; };
 		AC250E72FCFA7E6B33DBF603C95ABA03 /* Palette.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Palette.swift; sourceTree = "<group>"; };
 		C296E9C09D8ECD237D5AA7956C759519 /* Icons.generated.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Icons.generated.swift; sourceTree = "<group>"; };
 		C886DC43C416289F87F2CDEA7A91C893 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E8F1BCC9D34430D13E7F7F7B0D9DB7A3 /* Button.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Button.swift; sourceTree = "<group>"; };
-		EF68AE51672F669DCFEAEA4EC2750A27 /* Motion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Motion.framework; sourceTree = "<group>"; };
 		F039251374C84E03157A5640EC592D3A /* Test.xctest */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.cfbundle; path = Test.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		F263F7E9CE067E9C49AD709C262F7A90 /* Nuke.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Nuke.framework; sourceTree = "<group>"; };
 		F7C5C7A74CD15638C491B0AF4F36D97E /* Test.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Test.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -114,25 +92,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				341146937458FDEC4D06C0FF845137AB /* CoreRender.framework in Frameworks */,
-				B440E575228FDB6423D90228C32E8B90 /* Nuke.framework in Frameworks */,
-				70BA5B32C61CFC9FB890C6C35C5B15BE /* PromiseKit.framework in Frameworks */,
-				AED05CAC58AAD9E6BA3A0E0E7B27CF5C /* Motion.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		19EC1F9A0245BA71CEE35C163D82BA8A /* iOS */ = {
-			isa = PBXGroup;
-			children = (
-				EF68AE51672F669DCFEAEA4EC2750A27 /* Motion.framework */,
-				F263F7E9CE067E9C49AD709C262F7A90 /* Nuke.framework */,
-				177D0BB24C8FBFE11400F9786F3B418F /* PromiseKit.framework */,
-			);
-			path = iOS;
-			sourceTree = "<group>";
-		};
 		3E3917B841CB22B7F8A5D0148CA0FECC /* design */ = {
 			isa = PBXGroup;
 			children = (
@@ -184,20 +149,10 @@
 			path = catalog;
 			sourceTree = "<group>";
 		};
-		B9498326AC2CBAF59B7D7D606732D228 /* Carthage */ = {
-			isa = PBXGroup;
-			children = (
-				19EC1F9A0245BA71CEE35C163D82BA8A /* iOS */,
-			);
-			name = Carthage;
-			path = Carthage/Build;
-			sourceTree = "<group>";
-		};
 		BDD1182E50DC622819F253646A3A7D21 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
 				9208E4B0DDB800D89120A66D9E9DDEA4 /* CoreRender.framework */,
-				B9498326AC2CBAF59B7D7D606732D228 /* Carthage */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -263,7 +218,6 @@
 			buildConfigurationList = 1F0EDF8BC15A2DF39476FDCBFB7560A9 /* Build configuration list for PBXNativeTarget "Test" */;
 			buildPhases = (
 				412086AF849BEA74647A6A9ED645BED0 /* Sources */,
-				5ECEE219923D64C288502705694840FC /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -281,7 +235,6 @@
 			buildPhases = (
 				B77F0AF073564580D75A2CF19FC3792C /* Sources */,
 				37BFF6A8CB5CC7FA21AD3FA3861FADAB /* Resources */,
-				D7473267CD079C70520D785D72A90E51 /* Carthage */,
 				BC0DC3536DED64E0E8C9923E0D868673 /* Frameworks */,
 				8EFDE6013C818852098745E7ABA36959 /* Embed Frameworks */,
 			);
@@ -305,6 +258,9 @@
 					4C95064F7F27E32E6EFBCE84B8C41512 = {
 						TestTargetID = 93E9E330FC2CE7458D9C925FF94BFD77;
 					};
+					93E9E330FC2CE7458D9C925FF94BFD77 = {
+						LastSwiftMigration = 1020;
+					};
 				};
 			};
 			buildConfigurationList = B3FD05C59F197F398A0B04AB6B675649 /* Build configuration list for PBXProject "App" */;
@@ -312,6 +268,7 @@
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				en,
 				Base,
 			);
 			mainGroup = 4102E3E068508DD683953C7D32C511DC;
@@ -339,29 +296,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		D7473267CD079C70520D785D72A90E51 /* Carthage */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"$(SRCROOT)/Carthage/Build/iOS/Motion.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/Nuke.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/PromiseKit.framework",
-			);
-			name = Carthage;
-			outputPaths = (
-				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/Motion.framework",
-				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/Nuke.framework",
-				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/PromiseKit.framework",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "carthage copy-frameworks\n";
-		};
-/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		412086AF849BEA74647A6A9ED645BED0 /* Sources */ = {
@@ -423,16 +357,18 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/iOS",
 					"\"frameworks\"",
 				);
 				INFOPLIST_FILE = src/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = io.alexdrone.app.App;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -492,11 +428,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
-				FRAMEWORK_SEARCH_PATHS = (
+				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/iOS",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
 				);
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = io.alexdrone.app.Test;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -509,11 +445,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
-				FRAMEWORK_SEARCH_PATHS = (
+				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/iOS",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
 				);
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = io.alexdrone.app.Test;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -529,16 +465,18 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/iOS",
 					"\"frameworks\"",
 				);
 				INFOPLIST_FILE = src/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = io.alexdrone.app.App;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;

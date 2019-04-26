@@ -20,7 +20,7 @@ targets:
       base:
         INFOPLIST_FILE: src/Info.plist
         SWIFT_OPTIMIZATION_LEVEL: -Owholemodule
-        SWIFT_VERSION: 4.2
+        SWIFT_VERSION: 5
   Test:
     platform: iOS
     type: bundle.unit-test
