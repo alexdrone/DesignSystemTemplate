@@ -15,7 +15,7 @@ public class TextField: UITextField {
 
   public convenience init(
     placeholder: String,
-    icon: String? = nil,
+    icon: UIImage? = UIImage(),
     raised: Bool = true
   ) {
     self.init(frame: CGRect.zero)
@@ -33,7 +33,7 @@ public class TextField: UITextField {
     font = Theme.typography.style(.subtitle2).font
     textColor = Theme.palette.text
     if let icon = icon {
-      leftImage = UIImage(named: icon)
+      leftImage = icon
     }
     updateView()
   }

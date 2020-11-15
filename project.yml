@@ -1,7 +1,7 @@
 name: App
 options:
   deploymentTarget:
-    iOS: 10.0
+    iOS: 13.0
   usesTabs: false
   indentWidth: 2
 options:
@@ -10,12 +10,10 @@ targets:
   App:
     type: application
     platform: iOS
-    deploymentTarget: "10.0"
+    deploymentTarget: "13.0"
     sources: 
       - src/
       - generate_project.sh
-    dependencies:
-      - framework: frameworks/CoreRender.framework
     settings:
       base:
         INFOPLIST_FILE: src/Info.plist

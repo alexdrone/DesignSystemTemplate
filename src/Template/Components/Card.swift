@@ -39,7 +39,16 @@ open class Card: UIView {
   // Subviews.
   // - note: These are public so that subclasses can define new custom layout for newly
   // defiend styles.
-  public var contentView = UIView()
+  public var contentView = UIView() {
+    didSet {
+      oldValue.removeFromSuperview()
+      addSubview(contentView)
+      contentView.layer.cornerRadius = layer.cornerRadius
+      contentView.backgroundColor = backgroundColor
+      contentView.clipsToBounds = true
+      contentView.addSubview(selectionView)
+    }
+  }
   public var imageView = UIImageView()
   public var titleLabel = UILabel()
   public var subtitleLabel = UILabel()
@@ -130,7 +139,7 @@ open class Card: UIView {
     titleLabel.frame.size.width = labelWidth
     subtitleLabel.frame.size.width = labelWidth
     if style == Style.compact {
-      titleLabel.frame.origin = CGPoint(x: margin, y: margin)
+      titleLabel.frame.origin = CGPoint(x: margin, y: margin / 2)
       subtitleLabel.frame.origin = CGPoint(x: margin, y: titleLabel.frame.maxY + margin / 2)
       imageView.frame = CGRect(
         origin: CGPoint(x: bounds.size.width - imageSize, y: 0),
@@ -165,9 +174,16 @@ open class Card: UIView {
     }
     backgroundProtection.frame = imageView.frame
   }
+  
+  open override var intrinsicContentSize: CGSize {
+    sizeThatFits(UIScreen.main.bounds.size)
+  }
 
   /// Override this method to implement new styles or override the existing ones.
   open override func sizeThatFits(_ size: CGSize) -> CGSize {
+    guard style != Style.custom else {
+      return contentView.sizeThatFits(size)
+    }
     var result = CGSize(
       width: style == Style.postage ? size.width / 2 : size.width,
       height: 0)

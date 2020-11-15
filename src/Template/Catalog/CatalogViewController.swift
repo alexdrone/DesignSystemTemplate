@@ -6,32 +6,32 @@ class CatalogViewController: UIViewController {
   private let primaryButton = Button(
     style: .primary,
     title: "Primary",
-    icon: Icons.pin_drop)
+    icon: SFSymbol.mappinAndEllipse.toImage)
   private let primaryButtonRaised = Button(
     style: .primary,
     title: "Primary Raised",
-    icon: Icons.pin_drop,
+    icon: SFSymbol.mappinAndEllipse.toImage,
     raised: true)
   private let secondaryButton = Button(
     style: .secondary,
     title: "Secondary",
-    icon: Icons.pin_drop)
+    icon: SFSymbol.mappinAndEllipse.toImage)
   private let secondaryButtonRaised = Button(
     style: .secondary,
     title: "Secondary Raised",
-    icon: Icons.pin_drop,
+    icon: SFSymbol.mappinAndEllipse.toImage,
     raised: true)
   private let primaryButtonNoText = Button(
     style: .primary,
-    icon: Icons.search)
+    icon: SFSymbol.mappinAndEllipse.toImage)
   private let secondaryButtonNoText = Button(
     style: .secondary,
-    icon: Icons.search,
+    icon: SFSymbol.mappinAndEllipse.toImage,
     raised: true)
   private let disabledButton = Button(
     style: .secondary,
     title: "Disabled",
-    icon: Icons.pin_drop)
+    icon: SFSymbol.mappinAndEllipse.toImage)
   // Labels.
   private let body1Label = Label(
     style: .body1,
@@ -54,17 +54,31 @@ class CatalogViewController: UIViewController {
   // Textfield.
   private let textField = TextField(
     placeholder: "Textfield",
-    icon: Icons.search,
+    icon: SFSymbol.magnifyingglass.toImage,
     raised: false)
   private let textFieldRaised = TextField(
     placeholder: "Textfield Raised",
-    icon: Icons.search,
+    icon: SFSymbol.magnifyingglass.toImage,
     raised: true)
   // Cards.
   private let compactCard = makeCard(style: Card.Style.compact)
   private let midCard = makeCard(style: Card.Style.mid)
   private let postageCard = makeCard(style: Card.Style.postage)
   private let headlineCard = makeCard(style: Card.Style.headline)
+  private lazy var customCard: Card = {
+    let card = Card()
+    card.style = Card.Style.custom
+    let view = UIView(frame: CGRect(x: 0, y: 0, width: 100, height: 100))
+    card.contentView = view
+    card.onTap { _ in
+      Haptic.selection.generate()
+      UIView.animate(withDuration: 1) {
+        card.isSelected = !card.isSelected
+        card.layoutIfNeeded()
+      }
+    }
+    return card
+  }()
 
   override func loadView() {
     view = UIScrollView()
@@ -88,6 +102,7 @@ class CatalogViewController: UIViewController {
     view.addSubview(midCard)
     view.addSubview(postageCard)
     view.addSubview(headlineCard)
+    view.addSubview(customCard)
   }
 
   override func viewDidLayoutSubviews() {

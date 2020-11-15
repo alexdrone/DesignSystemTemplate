@@ -7,9 +7,5 @@ else
   ./scripts/_checkout.sh;
 fi
 
-# Import icon assets.
-# ADD DESIRED ICONS AS ARGS..
-./scripts/_import_icons.sh category edit place pin_drop search
-
 # Generate the xcode project.
 xcodegen;

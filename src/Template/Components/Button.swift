@@ -26,7 +26,7 @@ public class Button: UIButton {
   public convenience init(
     style: Button.Style,
     title: String = "",
-    icon: String? = nil,
+    icon: UIImage? = nil,
     raised: Bool = false
   ) {
     self.init()
@@ -55,8 +55,8 @@ public class Button: UIButton {
       UIControl.State.focused,
       UIControl.State.selected
     ]
-    if let icon = icon, var image = UIImage(named: icon) {
-      image = image.byResizingToTargetHeight(Constants.defaultIconSize)
+    if let icon = icon {
+      let image = icon.byResizingToTargetHeight(Constants.defaultIconSize)
       for state in commonControlStates {
         setImage(image.withTintColor(textColor), for: state)
       }
@@ -72,6 +72,46 @@ public class Button: UIButton {
     }
     updateBackground()
     sizeToFit()
+  }
+  
+  func update(title: String, icon: UIImage?) {
+    let displayTitle = title.isEmpty ? title : "  \(title)"
+    let titleFont = Theme.typography.style(.button)
+    let primaryTextColor = Theme.palette.secondary(.invertedTextHigh)
+    let secondaryTextColor = Theme.palette.secondary(.textHigh)
+    let textColor = buttonStyle == .primary ? primaryTextColor : secondaryTextColor
+    let selectedTextColor = buttonStyle == .primary ? primaryTextColor : primaryTextColor
+    let disabledTextColor = Theme.palette.textDisabled
+    setAttributedTitle(
+      titleFont.withColor(textColor).asAttributedString(displayTitle),
+      for: .normal)
+    setAttributedTitle(
+      titleFont.withColor(selectedTextColor).asAttributedString(displayTitle),
+      for: .selected)
+    setAttributedTitle(
+      titleFont.withColor(disabledTextColor).asAttributedString(displayTitle),
+      for: .disabled)
+    let commonControlStates = [
+      UIControl.State.normal,
+      UIControl.State.highlighted,
+      UIControl.State.focused,
+      UIControl.State.selected
+    ]
+    if let icon = icon {
+      let image = icon.byResizingToTargetHeight(Constants.defaultIconSize)
+      for state in commonControlStates {
+        setImage(image.withTintColor(textColor), for: state)
+      }
+      setImage(image.withTintColor(selectedTextColor), for: .selected)
+      setImage(image.withTintColor(disabledTextColor), for: .disabled)
+    }
+    layer.cornerRadius = Constants.defaultCornerRadius
+    layer.borderWidth = Constants.defaultBorderWidth
+    layer.borderColor = Theme.palette.hairline.cgColor
+    if (!hasTitle) {
+      let width = Constants.defaultIconSize + Constants.defaultHorizontalPadding
+      layer.cornerRadius = width / 2
+    }
   }
 
   private func updateBackground() {

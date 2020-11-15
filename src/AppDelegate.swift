@@ -1,7 +1,4 @@
 import UIKit
-// Test imports.
-import CoreRender
-// Test imports (Vendor).
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
