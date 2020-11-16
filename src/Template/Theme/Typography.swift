@@ -69,11 +69,11 @@ public class Typography {
   /// Fonts and its attributes.
   public struct StyleDescriptor {
     /// The typeface.
-    private let internalFont: UIFont
+    public let internalFont: UIFont
     /// The font letter spacing.
-    private let kern: CGFloat
+    public let kern: CGFloat
     /// Whether this typeface is meant to be used with uppercased text.
-    private var uppercase: Bool
+    public private(set) var uppercase: Bool
     /// Whether this font support dybamic font size.
     private var supportDynamicType: Bool
     /// The font color.
@@ -156,27 +156,27 @@ public class BaseTypography: TypographyProtocol {
     switch scale {
     case .h1:
       return Typography.StyleDescriptor(
-        font: Typography.font(family: .primary, weight: .light, size: 97.54),
+        font: Typography.font(family: .primary, weight: .light, size: 48.77),
         kern: -1.5)
     case .h2: return
       Typography.StyleDescriptor(
-        font: Typography.font(family: .primary, weight: .light, size: 60.96),
+        font: Typography.font(family: .primary, weight: .light, size: 34.54),
         kern: -0.5)
     case .h3:
       return Typography.StyleDescriptor(
-        font: Typography.font(family: .primary, weight: .regular, size: 48.77),
+        font: Typography.font(family: .primary, weight: .regular, size: 24.36),
         kern: 0)
     case .h4:
       return Typography.StyleDescriptor(
-        font: Typography.font(family: .primary, weight: .regular, size: 34.54),
+        font: Typography.font(family: .primary, weight: .regular, size: 22.54),
         kern: 0.25)
     case .h5:
       return Typography.StyleDescriptor(
-        font: Typography.font(family: .primary, weight: .medium, size: 24.38),
+        font: Typography.font(family: .primary, weight: .medium, size: 20.38),
         kern: 0)
     case .h6:
       return Typography.StyleDescriptor(
-        font: Typography.font(family: .primary, weight: .light, size: 14.26),
+        font: Typography.font(family: .primary, weight: .light, size: 18.26),
         kern: 0.25)
     case .body1:
       return Typography.StyleDescriptor(
@@ -219,5 +219,23 @@ public class BaseTypography: TypographyProtocol {
   }
 }
 
+#if canImport(SwiftUI)
+import SwiftUI
+
+public extension Text {
+
+  /// View modifier to render text with a given typographic style.
+  func style(_ style: Typography.Style) -> some View {
+    let desc = Theme.typography.style(style)
+    let uiFont = desc.internalFont
+    let ctFont = CTFontCreateWithFontDescriptor(uiFont.fontDescriptor, uiFont.pointSize, nil)
+    return self
+      .font(Font(ctFont))
+      .kerning(desc.kern)
+      .foregroundColor(desc.color.color)
+  }
+}
+
+#endif
 
 

@@ -6,32 +6,32 @@ class CatalogViewController: UIViewController {
   private let primaryButton = Button(
     style: .primary,
     title: "Primary",
-    icon: SFSymbol.mappinAndEllipse.toImage)
+    icon: SFSymbol.function.toImage)
   private let primaryButtonRaised = Button(
     style: .primary,
     title: "Primary Raised",
-    icon: SFSymbol.mappinAndEllipse.toImage,
+    icon: SFSymbol.function.toImage,
     raised: true)
   private let secondaryButton = Button(
     style: .secondary,
     title: "Secondary",
-    icon: SFSymbol.mappinAndEllipse.toImage)
+    icon: SFSymbol.function.toImage)
   private let secondaryButtonRaised = Button(
     style: .secondary,
     title: "Secondary Raised",
-    icon: SFSymbol.mappinAndEllipse.toImage,
+    icon: SFSymbol.function.toImage,
     raised: true)
   private let primaryButtonNoText = Button(
     style: .primary,
-    icon: SFSymbol.mappinAndEllipse.toImage)
+    icon: SFSymbol.function.toImage)
   private let secondaryButtonNoText = Button(
     style: .secondary,
-    icon: SFSymbol.mappinAndEllipse.toImage,
+    icon: SFSymbol.function.toImage,
     raised: true)
   private let disabledButton = Button(
     style: .secondary,
     title: "Disabled",
-    icon: SFSymbol.mappinAndEllipse.toImage)
+    icon: SFSymbol.function.toImage)
   // Labels.
   private let body1Label = Label(
     style: .body1,

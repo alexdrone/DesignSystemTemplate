@@ -91,7 +91,7 @@ public class BasePalette: PaletteProtocol {
   }
 
   public func secondary(_ style: Palette.Style) -> UIColor {
-    return Palette.DefaultSwatches.red(style)
+    return Palette.DefaultSwatches.teal(style)
   }
 }
 
@@ -133,7 +133,7 @@ extension UIColor {
 
 extension Palette {
   struct DefaultSwatches {
-    // Default red palette.
+
     static func red(_ style: Palette.Style) -> UIColor {
       switch style {
       case .tintBase:
@@ -162,6 +162,84 @@ extension Palette {
         return UIColor("#f15258")
       case .textHigh:
         return UIColor("#f15258")
+      case .textDisabled:
+        return UIColor("#000000").withAlphaComponent(0.38)
+      case .invertedText:
+        return UIColor("#ffffff").withAlphaComponent(0.60)
+      case .invertedTextHigh:
+        return UIColor("#ffffff")
+      case .invertedTextDisabled:
+        return UIColor("#ffffff").withAlphaComponent(0.38)
+      }
+    }
+
+    static func teal(_ style: Palette.Style) -> UIColor {
+      switch style {
+      case .tintBase:
+        return UIColor("#97AAAE")
+      case .tint900:
+        return UIColor("#697F84")
+      case .tint800:
+        return UIColor("#7A9094")
+      case .tint700:
+        return UIColor("#84999D")
+      case .tint600:
+        return UIColor("#8FA3A7")
+      case .tint500:
+        return UIColor("#97AAAE")
+      case .tint400:
+        return UIColor("#A7B7BA")
+      case .tint300:
+        return UIColor("#B6C4C6")
+      case .tint200:
+        return UIColor("#CBD5D7")
+      case .tint100:
+        return UIColor("#E0E6E7")
+      case .tint50:
+        return UIColor("#F3F5F5")
+      case .text:
+        return UIColor("#51777b")
+      case .textHigh:
+        return UIColor("#a3bfc2")
+      case .textDisabled:
+        return UIColor("#000000").withAlphaComponent(0.38)
+      case .invertedText:
+        return UIColor("#ffffff").withAlphaComponent(0.60)
+      case .invertedTextHigh:
+        return UIColor("#ffffff")
+      case .invertedTextDisabled:
+        return UIColor("#ffffff").withAlphaComponent(0.38)
+      }
+    }
+    
+    static func blue(_ style: Palette.Style) -> UIColor {
+      switch style {
+      case .tintBase:
+        return UIColor("#4285F4")
+      case .tint900:
+        return UIColor("#1D55EC")
+      case .tint800:
+        return UIColor("#2B68EF")
+      case .tint700:
+        return UIColor("#3372F1")
+      case .tint600:
+        return UIColor("#3C7DF3")
+      case .tint500:
+        return UIColor("#4285F4")
+      case .tint400:
+        return UIColor("#5E97F6")
+      case .tint300:
+        return UIColor("#7BAAF7")
+      case .tint200:
+        return UIColor("#A1C2FA")
+      case .tint100:
+        return UIColor("#C6DAFC")
+      case .tint50:
+        return UIColor("#E8F0FE")
+      case .text:
+        return UIColor("#2B68EF")
+      case .textHigh:
+        return UIColor("#1D55EC")
       case .textDisabled:
         return UIColor("#000000").withAlphaComponent(0.38)
       case .invertedText:

@@ -4,15 +4,33 @@ import SwiftUI
 public struct StyledButton: UIViewRepresentable {
 
   /// The button style (`primary` or `secondary`).
-  let style: Button.Style
+  public let style: Button.Style
   /// The button title displayed in this button.
-  let title: String
+  public let title: String
   /// Optional accessory image.
-  let icon: UIImage?
+  public let icon: UIImage?
   /// The button change elevation on touch.
-  let raised: Bool
+  public let isRaised: Bool
+  /// Whether the button should be should enabled or not.
+  public let isEnabled: Bool
   /// Touch-up inside action.
-  let action: () -> Void
+  public let action: () -> Void
+  
+  public init(
+    style: Button.Style = .primary,
+    title: String,
+    icon: UIImage? = nil,
+    isRaised: Bool = false,
+    isEnabled: Bool = true,
+    action: @escaping () -> Void = {}
+  ) {
+    self.style = style
+    self.title = title
+    self.icon = icon
+    self.isRaised = isRaised
+    self.isEnabled = isEnabled
+    self.action = action
+  }
   
   public func makeCoordinator() -> Coordinator {
     let coordinator = Coordinator()
@@ -21,16 +39,21 @@ public struct StyledButton: UIViewRepresentable {
   }
   
   public func makeUIView(context: UIViewRepresentableContext<StyledButton>) -> Button {
-    let button = Button(style: style, title: title, icon: icon, raised: raised)
-    button.addTarget(
+    let view = Button(style: style, title: title, icon: icon, raised: isRaised)
+    view.isEnabled = isEnabled
+    view.addTarget(
       context.coordinator,
       action: #selector(Coordinator.onTap(sender:)),
       for: .touchUpInside)
-    return button
+    ()
+    view.setContentHuggingPriority(.required, for: .horizontal)
+    view.setContentHuggingPriority(.required, for: .vertical)
+    return view
   }
   
   public func updateUIView(_ uiView: Button, context: UIViewRepresentableContext<StyledButton>) {
     context.coordinator.view = self
+    uiView.isEnabled = isEnabled
     uiView.update(title: title, icon: icon)
   }
   
@@ -42,11 +65,5 @@ public struct StyledButton: UIViewRepresentable {
     @objc dynamic func onTap(sender: Button) {
       view?.action()
     }
-  }
-}
-
-struct StyledButton_Previews: PreviewProvider {
-  static var previews: some View {
-    /*@START_MENU_TOKEN@*/Text("Hello, World!")/*@END_MENU_TOKEN@*/
   }
 }

@@ -1,4 +1,5 @@
 import UIKit
+import SwiftUI
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -11,7 +12,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
   ) -> Bool {
     window = UIWindow(frame: UIScreen.main.bounds)
     let nvc = UINavigationController(rootViewController: CatalogViewController())
-    window?.rootViewController = nvc
+    let svc = UIHostingController(rootView: CatalogView())
+    window?.rootViewController = svc
     window?.makeKeyAndVisible()
     // Override point for customization after application launch.
     return true

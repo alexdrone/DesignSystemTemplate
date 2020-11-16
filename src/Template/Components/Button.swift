@@ -162,6 +162,10 @@ public class Button: UIButton {
   open override var isEnabled: Bool {
     didSet { updateBackground() }
   }
+  
+  public override var intrinsicContentSize: CGSize {
+    sizeThatFits(UIScreen.main.bounds.size)
+  }
 
   open override func sizeThatFits(_ size: CGSize) -> CGSize {
     var result = super.sizeThatFits(size)

@@ -176,7 +176,7 @@ open class Card: UIView {
   }
   
   open override var intrinsicContentSize: CGSize {
-    sizeThatFits(UIScreen.main.bounds.size)
+    sizeThatFits(CGSize(width: UIScreen.main.bounds.size.width * 0.95, height: 0))
   }
 
   /// Override this method to implement new styles or override the existing ones.

@@ -37,6 +37,11 @@
 		<string>Rubik-Light.ttf</string>
 		<string>Rubik-Medium.ttf</string>
 		<string>Rubik-Regular.ttf</string>
+		<string>EuclidCircularA-Bold.ttf</string>
+		<string>EuclidCircularA-Medium.ttf</string>
+		<string>EuclidCircularA-Semibold.ttf</string>
+		<string>EuclidCircularA-Regular.ttf</string>
+		<string>EuclidCircularA-Light.ttf</string>
 	</array>
 	<key>LSApplicationCategoryType</key>
 	<string></string>

@@ -11,6 +11,9 @@
 		16F4730A2561488A00A7DC23 /* Bridge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16F473092561488A00A7DC23 /* Bridge.swift */; };
 		16F473142561493400A7DC23 /* Symbols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16F473132561493400A7DC23 /* Symbols.swift */; };
 		16F4732325614EF900A7DC23 /* StyledButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16F4732225614EF900A7DC23 /* StyledButton.swift */; };
+		16FDF9CE2561A9A8000DF919 /* SwiftUICatalog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16FDF9CD2561A9A8000DF919 /* SwiftUICatalog.swift */; };
+		16FDF9D22561B31D000DF919 /* StyledLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16FDF9D12561B31D000DF919 /* StyledLabel.swift */; };
+		16FDF9E425626B6B000DF919 /* StyledCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16FDF9E325626B6B000DF919 /* StyledCard.swift */; };
 		21F412A4E9BBB9E903660C83BE389E1D /* Palette.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC250E72FCFA7E6B33DBF603C95ABA03 /* Palette.swift */; };
 		235D33C559E50E068E7CFDF86D410FA3 /* Typography.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26D962601F728D079B9BB4538C8DD705 /* Typography.swift */; };
 		2952205B89B444F997975DA504BB0FF8 /* Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8F1BCC9D34430D13E7F7F7B0D9DB7A3 /* Button.swift */; };
@@ -53,6 +56,9 @@
 		16F473092561488A00A7DC23 /* Bridge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bridge.swift; sourceTree = "<group>"; };
 		16F473132561493400A7DC23 /* Symbols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Symbols.swift; sourceTree = "<group>"; };
 		16F4732225614EF900A7DC23 /* StyledButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StyledButton.swift; sourceTree = "<group>"; };
+		16FDF9CD2561A9A8000DF919 /* SwiftUICatalog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUICatalog.swift; sourceTree = "<group>"; };
+		16FDF9D12561B31D000DF919 /* StyledLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StyledLabel.swift; sourceTree = "<group>"; };
+		16FDF9E325626B6B000DF919 /* StyledCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StyledCard.swift; sourceTree = "<group>"; };
 		26D962601F728D079B9BB4538C8DD705 /* Typography.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Typography.swift; sourceTree = "<group>"; };
 		285EAE0FFE3B0287E59475250932EAAE /* Rubik-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Rubik-Light.ttf"; sourceTree = "<group>"; };
 		2E22D6932F15AFD373CBA7D58D100E49 /* Elevation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Elevation.swift; sourceTree = "<group>"; };
@@ -89,6 +95,8 @@
 			isa = PBXGroup;
 			children = (
 				16F4732225614EF900A7DC23 /* StyledButton.swift */,
+				16FDF9D12561B31D000DF919 /* StyledLabel.swift */,
+				16FDF9E325626B6B000DF919 /* StyledCard.swift */,
 			);
 			path = SwiftUI;
 			sourceTree = "<group>";
@@ -142,6 +150,7 @@
 			isa = PBXGroup;
 			children = (
 				0EF56074C9DD61BD7ADF523F9659AC97 /* CatalogViewController.swift */,
+				16FDF9CD2561A9A8000DF919 /* SwiftUICatalog.swift */,
 			);
 			path = Catalog;
 			sourceTree = "<group>";
@@ -308,7 +317,9 @@
 			files = (
 				71D2F97CE5E4F049243AE99244912CAF /* AppDelegate.swift in Sources */,
 				2952205B89B444F997975DA504BB0FF8 /* Button.swift in Sources */,
+				16FDF9E425626B6B000DF919 /* StyledCard.swift in Sources */,
 				99DFB3A28B990F9C2A2A917B41BE7A30 /* Card.swift in Sources */,
+				16FDF9CE2561A9A8000DF919 /* SwiftUICatalog.swift in Sources */,
 				B99EBC099274E9D2AD197AE882EBE788 /* CatalogViewController.swift in Sources */,
 				16F473142561493400A7DC23 /* Symbols.swift in Sources */,
 				EC72A90CAA482ADFC02369B41E073849 /* Elevation.swift in Sources */,
@@ -323,6 +334,7 @@
 				16F4730A2561488A00A7DC23 /* Bridge.swift in Sources */,
 				A062BB51DFD572374D055517EBFF5490 /* YourAppSrc.swift in Sources */,
 				16F4732325614EF900A7DC23 /* StyledButton.swift in Sources */,
+				16FDF9D22561B31D000DF919 /* StyledLabel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
